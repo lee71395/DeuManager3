@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "431950819583",
+    "firebase_url": "https://testapplication-f67fb-default-rtdb.firebaseio.com",
+    "project_id": "testapplication-f67fb",
+    "storage_bucket": "testapplication-f67fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:431950819583:android:a43f094ddce9ecc46b9cca",
+        "android_client_info": {
+          "package_name": "com.example.deumanager3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "431950819583-cro8qnirccqkv9o7l13itsjkf7svjb0i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9ZxfUUy99_iehfKcOfYIAWVx3l88nJIA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "431950819583-cro8qnirccqkv9o7l13itsjkf7svjb0i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

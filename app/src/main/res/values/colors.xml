@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#e96b64</color>
+    <color name="colorSchedule">#EA6C68</color>
+    <color name="colorPrimaryDark">#e96b64</color>
+    <color name="colorAccent">#e96b64</color>
+    <color name="bottom_section_color">#a6a6a6</color>
+    <color name="colorGray">#a6a6a6</color>
+    <color name="colorPink">#F1B3B8</color>
+    <color name="colorOrange">#fbcbbd</color>
+    <color name="colorYellow2">#fcebbe</color>
+    <color name="colorGreen">#EAEFCF</color>
+    <color name="colorPuple">#E3C4DE</color>
+
+    <color name="colorMint">#C5E8C2</color>
+    <color name="colorYellow">#FFDCAC</color>
+    <color name="colorScheduleUpdate">#BDD798</color>
+    <color name="colorText">#644437</color>
+
+    <color name="bottom_state_checked">#DF4D4D</color>
+    <color name="colorWhite">#f6f6f6</color>
+    <color name="colorBackground">#f9e5d3</color>
+    <color name="colorwhite2">#dddddd</color>
+    <color name="colorBlack">#000000</color>
+    <color name="tabSelectedTextColor">#f99a9a</color>
+    <color name="textcolor">#4b4545</color>
+
+</resources>
