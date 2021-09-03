@@ -33,7 +33,7 @@ public class GoogleLoginActivity extends AppCompatActivity
     private FirebaseAuth mFirebaseAuth;
     private GoogleApiClient mGoogleApiClient;
     private static final String TAG = "GoogleLoginActivity";
-    private static final int RC_SIGN_IN = 9001;
+    private static final int RC_SIGN_IN = 100;
     private ImageView logoImageView;
     private SignInButton loginButton;
     public String gname;
@@ -72,6 +72,7 @@ public class GoogleLoginActivity extends AppCompatActivity
                 .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
+        mFirebaseAuth = FirebaseAuth.getInstance();
     }
 
     private void signIn() {

@@ -1,9 +1,9 @@
 package com.example.deumanager3.model;
 
-import com.example.parksinyoung.moblieprogramming_syjy.R;
-import com.example.parksinyoung.moblieprogramming_syjy.singleton.Comment;
-import com.example.parksinyoung.moblieprogramming_syjy.singleton.User;
-import com.example.parksinyoung.moblieprogramming_syjy.viewholder.CommentViewHolder;
+import com.example.deumanager3.R;
+import com.example.deumanager3.singleton.Comment;
+import com.example.deumanager3.singleton.User;
+import com.example.deumanager3.viewholder.CommentViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -19,10 +19,10 @@ public class CommentModel {
     private String dataRefKey;
     private String postType;
     private int commentCount;
-    private com.example.parksinyoung.moblieprogramming_syjy.model.OnDataChangedListener onDataChangedListener;
+    private com.example.deumanager3.model.OnDataChangedListener onDataChangedListener;
 
 
-    public void setOnDataChangedListener(com.example.parksinyoung.moblieprogramming_syjy.model.OnDataChangedListener listener) {
+    public void setOnDataChangedListener(com.example.deumanager3.model.OnDataChangedListener listener) {
         this.onDataChangedListener = listener;
     }
 

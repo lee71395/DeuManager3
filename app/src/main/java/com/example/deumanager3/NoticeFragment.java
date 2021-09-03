@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-public class NoticeFragment extends com.example.parksinyoung.moblieprogramming_syjy.ToolBarFragment {
+public class NoticeFragment extends com.example.deumanager3.ToolBarFragment {
 
     private ImageButton UniNoticeButton;
     private ImageButton scheduleButton;

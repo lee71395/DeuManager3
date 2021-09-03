@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.parksinyoung.moblieprogramming_syjy.model.ScheduleModel;
-import com.example.parksinyoung.moblieprogramming_syjy.singleton.Schedule;
+import com.example.deumanager3.model.ScheduleModel;
+import com.example.deumanager3.singleton.Schedule;
 import com.google.firebase.database.DatabaseReference;
 
 import java.util.List;

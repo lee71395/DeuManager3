@@ -1,6 +1,6 @@
 package com.example.deumanager3.model;
 
-import com.example.parksinyoung.moblieprogramming_syjy.singleton.User;
+import com.example.deumanager3.singleton.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;

@@ -4,7 +4,7 @@ import static java.lang.String.valueOf;
 
 import android.util.Log;
 
-import com.example.parksinyoung.moblieprogramming_syjy.singleton.CalendarSingle;
+import com.example.deumanager3.singleton.CalendarSingle;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

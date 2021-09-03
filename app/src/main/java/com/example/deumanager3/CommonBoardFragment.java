@@ -16,8 +16,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.parksinyoung.moblieprogramming_syjy.model.OnDataChangedListener;
-import com.example.parksinyoung.moblieprogramming_syjy.model.PostModel;
+import com.example.deumanager3.model.OnDataChangedListener;
+import com.example.deumanager3.model.PostModel;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 

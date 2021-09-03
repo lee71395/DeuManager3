@@ -1,9 +1,5 @@
 package com.example.deumanager3;
 
-/**
- * Created by Park Sin Young on 2018-05-18.
- */
-
 import android.annotation.SuppressLint;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
@@ -25,7 +21,7 @@ public class BottomNavigationViewHelper {
             for (int i = 0; i < menuView.getChildCount(); i++) {
                 BottomNavigationItemView item = (BottomNavigationItemView) menuView.getChildAt(i);
                 //noinspection RestrictedApi
-                item.setShiftingMode(false);
+                item.setShifting(false);
                 // set once again checked value, so view will be updated
                 //noinspection RestrictedApi
                 item.setChecked(item.getItemData().isChecked());

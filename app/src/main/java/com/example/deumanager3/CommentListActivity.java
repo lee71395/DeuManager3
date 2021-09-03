@@ -14,8 +14,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
-import com.example.parksinyoung.moblieprogramming_syjy.model.CommentModel;
-import com.example.parksinyoung.moblieprogramming_syjy.model.OnDataChangedListener;
+import com.example.deumanager3.model.CommentModel;
+import com.example.deumanager3.model.OnDataChangedListener;
 
 
 public class CommentListActivity extends AppCompatActivity {

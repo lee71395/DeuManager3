@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.example.parksinyoung.moblieprogramming_syjy.singleton.Schedule;
+import com.example.deumanager3.singleton.Schedule;
 
 public class ScheduleDialogFragment extends DialogFragment {
 

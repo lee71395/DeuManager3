@@ -15,8 +15,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.parksinyoung.moblieprogramming_syjy.model.PostModel;
-import com.example.parksinyoung.moblieprogramming_syjy.singleton.User;
+import com.example.deumanager3.model.PostModel;
+import com.example.deumanager3.singleton.User;
 
 public class BoardWriteActivity extends AppCompatActivity {
 

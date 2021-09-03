@@ -1,6 +1,6 @@
 package com.example.deumanager3.model;
 
-import com.example.parksinyoung.moblieprogramming_syjy.singleton.Schedule;
+import com.example.deumanager3.singleton.Schedule;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
