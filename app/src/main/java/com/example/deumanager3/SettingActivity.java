@@ -26,7 +26,7 @@ public class SettingActivity extends AppCompatActivity {
         Button logoutButton = findViewById(R.id.logout_button);
         Button versionButton = findViewById(R.id.version_button);
         Button queryButton = findViewById(R.id.query_button);
-        Button developButton = findViewById(R.id.develop_button);
+//        Button developButton = findViewById(R.id.develop_button);
 
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,14 +56,14 @@ public class SettingActivity extends AppCompatActivity {
 
             }
         });
-        developButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                android.app.FragmentManager fragmentManager = getFragmentManager();
-                com.example.deumanager3.DeveloperDialogFragment dialog = new com.example.deumanager3.DeveloperDialogFragment();
-                dialog.show(fragmentManager, "abc");
-            }
-        });
+//        developButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                android.app.FragmentManager fragmentManager = getFragmentManager();
+//                com.example.deumanager3.DeveloperDialogFragment dialog = new com.example.deumanager3.DeveloperDialogFragment();
+//                dialog.show(fragmentManager, "abc");
+//            }
+//        });
 
     }
 

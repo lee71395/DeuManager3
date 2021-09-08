@@ -5,15 +5,19 @@
       <map>
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/drawable/view_boarder.xml" value="0.1" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/drawable/write.xml" value="0.1" />
-        <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_board.xml" value="0.1" />
+        <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_board.xml" value="0.128" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_board_write.xml" value="0.1296875" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_calender.xml" value="0.12142857142857143" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_comment.xml" value="0.13020833333333334" />
-        <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_comment_list.xml" value="0.1" />
+        <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_comment_list.xml" value="0.16" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_google_login.xml" value="0.1" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_login.xml" value="0.152" />
-        <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_main.xml" value="0.4" />
-        <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_setting.xml" value="0.6" />
+        <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_main.xml" value="0.35648148148148145" />
+        <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_note_preview.xml" value="0.12135416666666667" />
+        <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_note_write.xml" value="0.12135416666666667" />
+        <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_schedule.xml" value="0.2" />
+        <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_setting.xml" value="0.176" />
+        <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/fragment_calender.xml" value="0.12135416666666667" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/fragment_notice.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/fragment_schedule_delete_dialog.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/fragment_schedule_dialog.xml" value="0.13020833333333334" />

@@ -148,22 +148,22 @@ public class ScheduleFragment extends ToolBarFragment {
                 if (scheduleDelete) {
                     switch (text.getId()) {
                         case R.id.mondayA:
-                            ListRemove("월요일", "A");
+                            ListRemove("월요일", "1");
                             StartCreateView();
                         case R.id.mondayB:
-                            ListRemove("월요일", "B");
+                            ListRemove("월요일", "2");
                         case R.id.mondayC:
-                            ListRemove("월요일", "C");
+                            ListRemove("월요일", "3");
                         case R.id.mondayD:
-                            ListRemove("월요일", "D");
+                            ListRemove("월요일", "4");
                         case R.id.mondayE:
-                            ListRemove("월요일", "E");
+                            ListRemove("월요일", "5");
                         case R.id.mondayF:
-                            ListRemove("월요일", "F");
+                            ListRemove("월요일", "6");
                         case R.id.mondayG:
-                            ListRemove("월요일", "G");
+                            ListRemove("월요일", "7");
                         case R.id.mondayH:
-                            ListRemove("월요일", "H");
+                            ListRemove("월요일", "8");
 
                     }
 
@@ -177,145 +177,145 @@ public class ScheduleFragment extends ToolBarFragment {
         String r = " (" + room + ") ";
         String text = name + "\n" + r;
         if (day.equals("월요일")) {
-            if (time.equals("A")) {
+            if (time.equals("1")) {
                 monday[0].setText(text);
                 monday[0].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("B")) {
+            } else if (time.equals("2")) {
                 monday[1].setText(text);
                 monday[1].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("C")) {
+            } else if (time.equals("3")) {
                 Toast.makeText(getActivity(), name + " (" + room + ") ", Toast.LENGTH_SHORT).show();
                 monday[2].setText(text);
                 monday[2].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
 
-            } else if (time.equals("D")) {
+            } else if (time.equals("4")) {
                 monday[3].setText(text);
 
                 monday[3].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("E")) {
+            } else if (time.equals("5")) {
                 monday[4].setText(text);
 
                 monday[4].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
 
-            } else if (time.equals("F")) {
+            } else if (time.equals("6")) {
                 monday[5].setText(text);
 
                 monday[5].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
 
-            } else if (time.equals("G")) {
+            } else if (time.equals("7")) {
                 monday[6].setText(text);
 
                 monday[6].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
 
-            } else if (time.equals("H")) {
+            } else if (time.equals("8")) {
                 monday[7].setText(text);
 
                 monday[7].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
             }
 
         } else if (day.equals("화요일")) {
-            if (time.equals("A")) {
+            if (time.equals("1")) {
                 tuesday[0].setText(text);
                 tuesday[0].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
 
-            } else if (time.equals("B")) {
+            } else if (time.equals("2")) {
                 tuesday[1].setText(text);
                 tuesday[1].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
 
-            } else if (time.equals("C")) {
+            } else if (time.equals("3")) {
                 tuesday[2].setText(text);
                 tuesday[2].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("D")) {
+            } else if (time.equals("4")) {
                 tuesday[3].setText(text);
                 tuesday[3].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("E")) {
+            } else if (time.equals("5")) {
                 tuesday[4].setText(text);
                 tuesday[4].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("F")) {
+            } else if (time.equals("6")) {
                 tuesday[5].setText(text);
                 tuesday[5].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("G")) {
+            } else if (time.equals("7")) {
                 tuesday[6].setText(text);
                 tuesday[6].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("H")) {
+            } else if (time.equals("8")) {
                 tuesday[7].setText(text);
                 tuesday[7].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
             }
         } else if (day.equals("수요일")) {
-            if (time.equals("A")) {
+            if (time.equals("1")) {
                 wednesday[0].setText(text);
                 wednesday[0].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("B")) {
+            } else if (time.equals("2")) {
                 wednesday[1].setText(text);
                 wednesday[1].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("C")) {
+            } else if (time.equals("3")) {
                 wednesday[2].setText(text);
                 wednesday[2].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("D")) {
+            } else if (time.equals("4")) {
                 wednesday[3].setText(text);
                 wednesday[3].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("E")) {
+            } else if (time.equals("5")) {
                 wednesday[4].setText(text);
                 wednesday[4].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("F")) {
+            } else if (time.equals("6")) {
                 wednesday[5].setText(text);
                 wednesday[5].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("G")) {
+            } else if (time.equals("7")) {
                 wednesday[6].setText(text);
                 wednesday[6].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("H")) {
+            } else if (time.equals("8")) {
                 wednesday[7].setText(text);
                 wednesday[7].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
             }
         } else if (day.equals("목요일")) {
-            if (time.equals("A")) {
+            if (time.equals("1")) {
                 thursday[0].setText(text);
                 thursday[0].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("B")) {
+            } else if (time.equals("2")) {
                 thursday[1].setText(text);
                 thursday[1].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("C")) {
+            } else if (time.equals("3")) {
                 thursday[2].setText(text);
                 thursday[2].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("D")) {
+            } else if (time.equals("4")) {
                 thursday[3].setText(text);
                 thursday[3].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("E")) {
+            } else if (time.equals("5")) {
                 thursday[4].setText(text);
                 thursday[4].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("F")) {
+            } else if (time.equals("6")) {
                 thursday[5].setText(text);
                 thursday[5].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("G")) {
+            } else if (time.equals("7")) {
                 thursday[6].setText(text);
                 thursday[6].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("H")) {
+            } else if (time.equals("8")) {
                 thursday[7].setText(text);
                 thursday[7].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
             }
         } else if (day.equals("금요일")) {
-            if (time.equals("A")) {
+            if (time.equals("1")) {
                 friday[0].setText(text);
                 friday[0].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("B")) {
+            } else if (time.equals("2")) {
                 friday[1].setText(text);
                 friday[1].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("C")) {
+            } else if (time.equals("3")) {
                 friday[2].setText(text);
                 friday[2].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("D")) {
+            } else if (time.equals("4")) {
                 friday[3].setText(text);
                 friday[3].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("E")) {
+            } else if (time.equals("5")) {
                 friday[4].setText(text);
                 friday[4].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("F")) {
+            } else if (time.equals("6")) {
                 friday[5].setText(text);
                 friday[5].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("G")) {
+            } else if (time.equals("7")) {
                 friday[6].setText(text);
                 friday[6].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("H")) {
+            } else if (time.equals("8")) {
                 friday[7].setText(text);
                 friday[7].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
             }
