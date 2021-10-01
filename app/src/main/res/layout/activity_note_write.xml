@@ -8,19 +8,19 @@
         android:layout_width="0dp"
         android:layout_height="370dp"
         app:datePicker="true"
-        app:headerColor="@color/colorPrimary"
+        app:headerColor="#000080"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:selectionColor="@color/colorAccent"
-        app:todayLabelColor="@color/colorPrimaryDark" />
+        app:selectionColor="#000080"
+        app:todayLabelColor="#000080" />
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/addNoteButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/save"
         android:textColor="@android:color/white"
-        app:backgroundTint="@color/colorAccent"
+        app:backgroundTint="#000080"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />

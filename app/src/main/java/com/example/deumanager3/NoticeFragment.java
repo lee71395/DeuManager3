@@ -37,7 +37,7 @@ public class NoticeFragment extends com.example.deumanager3.ToolBarFragment {
         UniNoticeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.ajou.ac.kr/new/ajou/notice.jsp"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.deu.ac.kr/www/board/3"));
                 intent.setPackage("com.android.chrome");
                 startActivity(intent);
             }
@@ -53,7 +53,7 @@ public class NoticeFragment extends com.example.deumanager3.ToolBarFragment {
         majorNoticeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://media.ajou.ac.kr/media/board/board01.jsp"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://computer.deu.ac.kr/computer/index.do"));
                 intent.setPackage("com.android.chrome");
                 startActivity(intent);
             }
@@ -61,7 +61,7 @@ public class NoticeFragment extends com.example.deumanager3.ToolBarFragment {
         scheduleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.ajou.ac.kr/new/life/schedule_haksa_2017.jsp"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.deu.ac.kr/www/academic_calendar"));
                 intent.setPackage("com.android.chrome");
                 startActivity(intent);
             }
