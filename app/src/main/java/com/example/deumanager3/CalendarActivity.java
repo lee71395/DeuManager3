@@ -6,6 +6,8 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -31,6 +33,7 @@ public class CalendarActivity extends AppCompatActivity {
     public static final String EVENT = "event";
     private static final int ADD_NOTE = 44;
     private CalendarView mCalendarView;
+    private DatabaseReference mDatabaseRef;
     //private TextView textView;
     private List<EventDay> mEventDays = new ArrayList<>();
     private List<CalendarSingle> gCalendarSingles;
@@ -38,6 +41,7 @@ public class CalendarActivity extends AppCompatActivity {
     private List<EventDay> gEventDats = new ArrayList <>();
     private List<Schedule> mSchedules = new ArrayList <>();
     private ScheduleModel scheduleModel = new ScheduleModel();
+
 
     private ProgressDialog progressDialog;
     private DatabaseReference databaseReference;
@@ -56,7 +60,7 @@ public class CalendarActivity extends AppCompatActivity {
         mCalendarView = (CalendarView) findViewById(R.id.calendarView);
 
         Calendar calendar1 = Calendar.getInstance();
-        calendar1.set(2018,6-1,12);
+        calendar1.getTime();
         List<EventDay> eventDay = new ArrayList <>();
         eventDay.add(new EventDay(calendar1,R.drawable.ic_message_black_48dp));
         mCalendarView.setDate(calendar1);
@@ -65,7 +69,7 @@ public class CalendarActivity extends AppCompatActivity {
         this.mSchedules = scheduleModel.getSchedules();
 
         this.gCalendarSingles = calendarModel.getmCalendars();
-        Log.i("가져xxf옴",valueOf(gCalendarSingles.size()));
+        Log.i("가져옴",valueOf(gCalendarSingles.size()));
         for(int i = 0; i< gCalendarSingles.size(); i++) {
 
             Calendar calendar = Calendar.getInstance();
@@ -90,27 +94,27 @@ public class CalendarActivity extends AppCompatActivity {
             }
         });
 
-        ValueEventListener calendarlistener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // Get CalendarSingle object and use the values to update the UI
-//                CalendarSingle calendarSingle = dataSnapshot.getValue(CalendarSingle.class);
-//                MyEventDay myEventDay;
-//                Intent returnIntent = new Intent();
-//                Calendar calendar = Calendar.getInstance();
-//                calendar.set(calendarSingle.getYear(),calendarSingle.getMonth(),calendarSingle.getDay());
-//                myEventDay = new MyEventDay(calendar, R.drawable.ic_message_black_48dp, calendarSingle.getNote());
-//                returnIntent.putExtra(CalendarActivity.RESULT, myEventDay);
-//                setResult(Activity.RESULT_OK, returnIntent);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
-                Log.w("cancelled", "loadPost:onCancelled", databaseError.toException());
-                // ...
-            }
-        };
+//        ValueEventListener calendarlistener = new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                // Get CalendarSingle object and use the values to update the UI
+////                CalendarSingle calendarSingle = dataSnapshot.getValue(CalendarSingle.class);
+////                MyEventDay myEventDay;
+////                Intent returnIntent = new Intent();
+////                Calendar calendar = Calendar.getInstance();
+////                calendar.set(calendarSingle.getYear(),calendarSingle.getMonth(),calendarSingle.getDay());
+////                myEventDay = new MyEventDay(calendar, R.drawable.ic_message_black_48dp, calendarSingle.getNote());
+////                returnIntent.putExtra(CalendarActivity.RESULT, myEventDay);
+////                setResult(Activity.RESULT_OK, returnIntent);
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//                // Getting Post failed, log a message
+//                Log.w("cancelled", "loadPost:onCancelled", databaseError.toException());
+//                // ...
+//            }
+//        };
        // databaseReference.addValueEventListener(calendarlistener);
 
 
@@ -142,6 +146,7 @@ public class CalendarActivity extends AppCompatActivity {
 //        textView.setText();
 //        //이후에 캘린더 텍스트뷰에 미리보기 추가
 //    }
+
 
     private void showProgressDialog() {
         progressDialog = new ProgressDialog(this);

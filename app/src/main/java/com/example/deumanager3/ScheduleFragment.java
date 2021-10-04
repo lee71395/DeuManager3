@@ -42,50 +42,50 @@ public class ScheduleFragment extends ToolBarFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_schedule, container, false);
 
-        monday[0] = view.findViewById(R.id.mondayA);
-        monday[1] = view.findViewById(R.id.mondayB);
-        monday[2] = view.findViewById(R.id.mondayC);
-        monday[3] = view.findViewById(R.id.mondayD);
-        monday[4] = view.findViewById(R.id.mondayE);
-        monday[5] = view.findViewById(R.id.mondayF);
-        monday[6] = view.findViewById(R.id.mondayG);
-        monday[7] = view.findViewById(R.id.mondayH);
+        monday[0] = view.findViewById(R.id.monday1);
+        monday[1] = view.findViewById(R.id.monday2);
+        monday[2] = view.findViewById(R.id.monday3);
+        monday[3] = view.findViewById(R.id.monday4);
+        monday[4] = view.findViewById(R.id.monday5);
+        monday[5] = view.findViewById(R.id.monday6);
+        monday[6] = view.findViewById(R.id.monday7);
+        monday[7] = view.findViewById(R.id.monday8);
 
-        tuesday[0] = view.findViewById(R.id.tuesdayA);
-        tuesday[1] = view.findViewById(R.id.tuesdayB);
-        tuesday[2] = view.findViewById(R.id.tuesdayC);
-        tuesday[3] = view.findViewById(R.id.tuesdayD);
-        tuesday[4] = view.findViewById(R.id.tuesdayE);
-        tuesday[5] = view.findViewById(R.id.tuesdayF);
-        tuesday[6] = view.findViewById(R.id.tuesdayG);
-        tuesday[7] = view.findViewById(R.id.tuesdayH);
+        tuesday[0] = view.findViewById(R.id.tuesday1);
+        tuesday[1] = view.findViewById(R.id.tuesday2);
+        tuesday[2] = view.findViewById(R.id.tuesday3);
+        tuesday[3] = view.findViewById(R.id.tuesday4);
+        tuesday[4] = view.findViewById(R.id.tuesday5);
+        tuesday[5] = view.findViewById(R.id.tuesday6);
+        tuesday[6] = view.findViewById(R.id.tuesday7);
+        tuesday[7] = view.findViewById(R.id.tuesday8);
 
-        wednesday[0] = view.findViewById(R.id.wednesdayA);
-        wednesday[1] = view.findViewById(R.id.wednesdayB);
-        wednesday[2] = view.findViewById(R.id.wednesdayC);
-        wednesday[3] = view.findViewById(R.id.wednesdayD);
-        wednesday[4] = view.findViewById(R.id.wednesdayE);
-        wednesday[5] = view.findViewById(R.id.wednesdayF);
-        wednesday[6] = view.findViewById(R.id.wednesdayG);
-        wednesday[7] = view.findViewById(R.id.wednesdayH);
+        wednesday[0] = view.findViewById(R.id.wednesday1);
+        wednesday[1] = view.findViewById(R.id.wednesday2);
+        wednesday[2] = view.findViewById(R.id.wednesday3);
+        wednesday[3] = view.findViewById(R.id.wednesday4);
+        wednesday[4] = view.findViewById(R.id.wednesday5);
+        wednesday[5] = view.findViewById(R.id.wednesday6);
+        wednesday[6] = view.findViewById(R.id.wednesday7);
+        wednesday[7] = view.findViewById(R.id.wednesday8);
 
-        thursday[0] = view.findViewById(R.id.thursdayA);
-        thursday[1] = view.findViewById(R.id.thursdayB);
-        thursday[2] = view.findViewById(R.id.thursdayC);
-        thursday[3] = view.findViewById(R.id.thursdayD);
-        thursday[4] = view.findViewById(R.id.thursdayE);
-        thursday[5] = view.findViewById(R.id.thursdayF);
-        thursday[6] = view.findViewById(R.id.thursdayG);
-        thursday[7] = view.findViewById(R.id.thursdayH);
+        thursday[0] = view.findViewById(R.id.thursday1);
+        thursday[1] = view.findViewById(R.id.thursday2);
+        thursday[2] = view.findViewById(R.id.thursday3);
+        thursday[3] = view.findViewById(R.id.thursday4);
+        thursday[4] = view.findViewById(R.id.thursday5);
+        thursday[5] = view.findViewById(R.id.thursday6);
+        thursday[6] = view.findViewById(R.id.thursday7);
+        thursday[7] = view.findViewById(R.id.thursday8);
 
-        friday[0] = view.findViewById(R.id.fridayA);
-        friday[1] = view.findViewById(R.id.fridayB);
-        friday[2] = view.findViewById(R.id.fridayC);
-        friday[3] = view.findViewById(R.id.fridayD);
-        friday[4] = view.findViewById(R.id.fridayE);
-        friday[5] = view.findViewById(R.id.fridayF);
-        friday[6] = view.findViewById(R.id.fridayG);
-        friday[7] = view.findViewById(R.id.fridayH);
+        friday[0] = view.findViewById(R.id.friday1);
+        friday[1] = view.findViewById(R.id.friday2);
+        friday[2] = view.findViewById(R.id.friday3);
+        friday[3] = view.findViewById(R.id.friday4);
+        friday[4] = view.findViewById(R.id.friday5);
+        friday[5] = view.findViewById(R.id.friday6);
+        friday[6] = view.findViewById(R.id.friday7);
+        friday[7] = view.findViewById(R.id.friday8);
 
         monday[0].setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,22 +147,22 @@ public class ScheduleFragment extends ToolBarFragment {
                 scheduleDelete = result;
                 if (scheduleDelete) {
                     switch (text.getId()) {
-                        case R.id.mondayA:
+                        case R.id.monday1:
                             ListRemove("월요일", "1");
                             StartCreateView();
-                        case R.id.mondayB:
+                        case R.id.monday2:
                             ListRemove("월요일", "2");
-                        case R.id.mondayC:
+                        case R.id.monday3:
                             ListRemove("월요일", "3");
-                        case R.id.mondayD:
+                        case R.id.monday4:
                             ListRemove("월요일", "4");
-                        case R.id.mondayE:
+                        case R.id.monday5:
                             ListRemove("월요일", "5");
-                        case R.id.mondayF:
+                        case R.id.monday6:
                             ListRemove("월요일", "6");
-                        case R.id.mondayG:
+                        case R.id.monday7:
                             ListRemove("월요일", "7");
-                        case R.id.mondayH:
+                        case R.id.monday8:
                             ListRemove("월요일", "8");
 
                     }

@@ -12,14 +12,19 @@ import android.widget.Toast;
 
 import com.applandeo.materialcalendarview.CalendarView;
 import com.example.deumanager3.model.CalendarModel;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class AddNoteActivity extends AppCompatActivity {
+
 
     private CalendarModel calendarModel;
     private MyEventDay myEventDay;
     private EditText noteEditText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_write);
 

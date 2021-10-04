@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private static ScheduleFragment scheduleFragment = new ScheduleFragment();
     private static NoticeFragment sNoticeFragment = new NoticeFragment();
     private static CalendarActivity calendarActivity= new CalendarActivity();
+    private static ScheduleActivity scheduleActivity = new ScheduleActivity();
     private UserModel user1 = new UserModel();
 
     @Override
@@ -76,8 +77,10 @@ public class MainActivity extends AppCompatActivity {
                         toolbarText.setText("HOME");
                         return true;
                     case R.id.action_two://시간표
-                        replaceFragment(scheduleFragment);
-                        toolbarText.setText("SCHEDULE");
+                        Intent scheduleIntent = new Intent (MainActivity.this, ScheduleActivity.class);
+                        startActivity(scheduleIntent);
+//                        replaceFragment(scheduleFragment);
+//                        toolbarText.setText("SCHEDULE");
                         return true;
                     case R.id.action_three://캘린더
                         Intent calenderIntent = new Intent(MainActivity.this, CalendarActivity.class);

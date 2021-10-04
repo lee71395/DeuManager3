@@ -9,6 +9,8 @@
         android:icon="@drawable/home"
         android:title="@string/title_home"
         app:showAsAction="ifRoom|withText" />
+    <!--  홈 이미지 변경  -->
+
 
     <item
         android:id="@+id/action_two"
@@ -16,23 +18,26 @@
         android:enabled="true"
         android:icon="@drawable/schedule"
         android:title="@string/title_schedule" />
-
+    <!--  시간표 이미지 변경  -->
     <item
         android:id="@+id/action_three"
         app:showAsAction="ifRoom|withText"
         android:enabled="true"
         android:icon="@drawable/calender"
         android:title="@string/title_calendar" />
+    <!--  캘린더 이미지 변경  -->
     <item
         android:id="@+id/action_four"
         app:showAsAction="always|withText"
         android:enabled="true"
         android:icon="@drawable/notice"
         android:title="@string/title_notice" />
+    <!--  공지사항 이미지 변경  -->
     <item
         android:id="@+id/action_five"
         app:showAsAction="always|withText"
         android:enabled="true"
         android:icon="@drawable/board"
         android:title="@string/title_board" />
+    <!--  게시판 이미지 변경  -->
 </menu>

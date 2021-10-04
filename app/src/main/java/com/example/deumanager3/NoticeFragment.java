@@ -12,11 +12,10 @@ import android.widget.ImageButton;
 
 public class NoticeFragment extends com.example.deumanager3.ToolBarFragment {
 
-    private ImageButton UniNoticeButton;
-    private ImageButton scheduleButton;
-    private ImageButton majorNoticeButton;
-    private Button foodButton;
-    private ImageButton noticeButton;
+    private ImageButton DoorButton;
+    private ImageButton DAPButton;
+    private ImageButton NoticeButton;
+    private ImageButton TimeTableButton;
 
 //    @NonNull
 //    public static NoticeFragment newInstance() {
@@ -28,13 +27,29 @@ public class NoticeFragment extends com.example.deumanager3.ToolBarFragment {
         View view = inflater.inflate(R.layout.fragment_notice, container, false);
         setToolbar();
 
-        UniNoticeButton = view.findViewById(R.id.notice_button);
-        majorNoticeButton = view.findViewById(R.id.major_notice_button);
+        DoorButton = view.findViewById(R.id.door_button);
+        DAPButton = view.findViewById(R.id.dap_button);
 //        foodButton = view.findViewById(R.id.food_button);
-        scheduleButton = view.findViewById(R.id.university_schedule_button);
-        noticeButton = view.findViewById(R.id.notice_button2);
+        NoticeButton = view.findViewById(R.id.notice_button);
+        TimeTableButton = view.findViewById(R.id.timetable_button);
 
-        UniNoticeButton.setOnClickListener(new View.OnClickListener() {
+        DoorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://door.deu.ac.kr/Home/Index"));
+                intent.setPackage("com.android.chrome");
+                startActivity(intent);
+            }
+        });
+        DAPButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://dap.deu.ac.kr/sso/login.aspx"));
+                intent.setPackage("com.android.chrome");
+                startActivity(intent);
+            }
+        });
+        NoticeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.deu.ac.kr/www/board/3"));
@@ -42,23 +57,7 @@ public class NoticeFragment extends com.example.deumanager3.ToolBarFragment {
                 startActivity(intent);
             }
         });
-        noticeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://it.ajou.ac.kr/it/community/community01.jsp"));
-                intent.setPackage("com.android.chrome");
-                startActivity(intent);
-            }
-        });
-        majorNoticeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://computer.deu.ac.kr/computer/index.do"));
-                intent.setPackage("com.android.chrome");
-                startActivity(intent);
-            }
-        });
-        scheduleButton.setOnClickListener(new View.OnClickListener() {
+        TimeTableButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.deu.ac.kr/www/academic_calendar"));

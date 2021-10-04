@@ -4,7 +4,11 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,25 +17,37 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.deumanager3.singleton.Dday;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.net.HttpCookie;
 import java.util.Calendar;
 
-public class HomeFragment extends com.example.deumanager3.ToolBarFragment {
+public class HomeFragment extends ToolBarFragment {
+
 
 //    @NonNull
 //    public static HomeFragment newInstance() {
 //        return new HomeFragment();
 //    }
-
+    private FirebaseAuth mFirebaseAuth;
+    private DatabaseReference mDatabaseRef;
+    private FirebaseDatabase database;
     private TextView tname;
     private TextView email;
 
 
     private ImageView phone;
-    private ImageView foodi;
+    private ImageView map;
     private ImageView bus;
     private ImageView homepage;
 
@@ -43,7 +59,7 @@ public class HomeFragment extends com.example.deumanager3.ToolBarFragment {
     private TextView ddayText2;
     private TextView resultText2;
     private Button dateButton2;
-    private int chek=1;
+    private int check;
 
     private int tYear;           //오늘 연월일 변수
     private int tMonth;
@@ -63,16 +79,18 @@ public class HomeFragment extends com.example.deumanager3.ToolBarFragment {
     static final int DATE_DIALOG_ID=0;
 
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    
 //    private User user;
 
 
     @Nullable
     @Override
     public View onCreateView( LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState ) {
+
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         setToolbar();
         phone = view.findViewById(R.id.phone);
-        foodi = view.findViewById(R.id.food);
+        map = view.findViewById(R.id.map);
         //bus = view.findViewById(R.id.bus);
         //homepage = view.findViewById(R.id.homepage);
 
@@ -84,16 +102,16 @@ public class HomeFragment extends com.example.deumanager3.ToolBarFragment {
         phone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.ajou.ac.kr/new/phone/contact01.jsp"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.deu.ac.kr/www/tel/21"));
                 intent.setPackage("com.android.chrome");
                 startActivity(intent);
             }
         });
 
-        foodi.setOnClickListener(new View.OnClickListener() {
+        map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.ajou.ac.kr/kr/life/food.jsp"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.deu.ac.kr/www/content/14"));
                 intent.setPackage("com.android.chrome");
                 startActivity(intent);
             }
@@ -132,8 +150,7 @@ public class HomeFragment extends com.example.deumanager3.ToolBarFragment {
                 // TODO Auto-generated method stub
                 DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), dDateSetListener, tYear, tMonth, tDay);
                 datePickerDialog.show();
-                chek=1;
-
+                check=1;
             }
         });
         ddayText2 = view.findViewById(R.id.dday2);
@@ -147,7 +164,7 @@ public class HomeFragment extends com.example.deumanager3.ToolBarFragment {
                 // TODO Auto-generated method stub
                 DatePickerDialog datePickerDialog2 = new DatePickerDialog(getActivity(), dDateSetListener, tYear, tMonth, tDay);
                 datePickerDialog2.show();
-                chek=2;
+                check=2;
             }
         });
         Calendar calendar = Calendar.getInstance();              //현재 날짜 불러옴
@@ -182,7 +199,7 @@ public class HomeFragment extends com.example.deumanager3.ToolBarFragment {
     private void updateDisplay() {
 
         todayText.setText(String.format("%d년 %d월 %d일",tYear, tMonth+1,tDay));
-        if(chek==1) {
+        if(check==1) {
             ddayText.setText(String.format("%d년 %d월 %d일",dYear, dMonth+1,dDay));
 
             if(resultNumber>=0){
@@ -193,7 +210,7 @@ public class HomeFragment extends com.example.deumanager3.ToolBarFragment {
                 resultText.setText(String.format("D+%d", absR));
             }
         }
-        else if(chek==2) {
+        else if(check==2) {
             ddayText2.setText(String.format("%d년 %d월 %d일", dYear, dMonth + 1, dDay));
 
             if (resultNumber >= 0) {
@@ -211,6 +228,7 @@ public class HomeFragment extends com.example.deumanager3.ToolBarFragment {
         public void onDateSet( DatePicker view, int year, int monthOfYear,
                                int dayOfMonth) {
             // TODO Auto-generated method stub
+            mDatabaseRef = FirebaseDatabase.getInstance().getReference();
             dYear = year;
             dMonth = monthOfYear;
             dDay = dayOfMonth;
@@ -222,11 +240,24 @@ public class HomeFragment extends com.example.deumanager3.ToolBarFragment {
 
             resultNumber = (int) r;
             updateDisplay();
+            writeNewUser(String.valueOf(r), dYear, dMonth, dDay);
+        }
+        private void writeNewUser(String result, int year, int month, int day) {
+            Dday dday = new Dday(year, month, day, result);
+
+            mDatabaseRef.child("Dday").child(result).setValue(dday)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+
+                        }
+                    });
         }
     };
     public void setName(String name) {
         tname.setText(name);
     }
+  
 
 
 

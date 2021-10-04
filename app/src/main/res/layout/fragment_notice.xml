@@ -26,21 +26,21 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
-            android:id="@+id/notice_button"
+            android:id="@+id/door_button"
             android:layout_width="180dp"
             android:layout_height="120dp"
             android:background="#00000000"
             android:scaleType="fitXY"
-            android:src="@drawable/university"
+            android:src="@drawable/door"
             android:layout_marginEnd="10dp"/>
 
         <ImageButton
-            android:id="@+id/notice_button2"
+            android:id="@+id/dap_button"
             android:layout_width="180dp"
             android:layout_height="120dp"
             android:background="#00000000"
             android:scaleType="fitXY"
-            android:src="@drawable/undergraduate"
+            android:src="@drawable/dap"
             android:layout_marginEnd="20dp"/>
     </LinearLayout>
 
@@ -55,21 +55,21 @@
         app:layout_constraintTop_toBottomOf="@+id/first">
 
         <ImageButton
-            android:id="@+id/major_notice_button"
+            android:id="@+id/notice_button"
             android:layout_width="180dp"
             android:layout_height="120dp"
             android:background="#00000000"
             android:scaleType="fitXY"
-            android:src="@drawable/major"
+            android:src="@drawable/university"
             android:layout_marginEnd="10dp"/>
 
         <ImageButton
-            android:id="@+id/university_schedule_button"
+            android:id="@+id/timetable_button"
             android:layout_width="180dp"
             android:layout_height="120dp"
             android:background="#00000000"
             android:scaleType="fitXY"
-            android:src="@drawable/academic"
+            android:src="@drawable/timetable"
             android:layout_marginEnd="20dp"/>
     </LinearLayout>
     <!--<Button-->

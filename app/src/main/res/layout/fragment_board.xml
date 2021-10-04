@@ -10,9 +10,9 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:background="@color/colorWhite"
-        app:tabTextColor="@color/tabSelectedTextColor"
-        app:tabSelectedTextColor="@color/bottom_state_checked"
-        app:tabIndicatorColor="@color/bottom_state_checked"
+        app:tabTextColor="#000080"
+        app:tabSelectedTextColor="#000080"
+        app:tabIndicatorColor="#000080"
         />
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/board_view_pager"

@@ -21,81 +21,89 @@
         <TableRow android:layout_weight="1">
 
             <TextView
-                android:id="@+id/classA"
+                android:id="@+id/class1"
                 android:layout_height="match_parent"
                 android:background="@drawable/cell_shape_time"
                 android:gravity="center"
-                android:text="A"/>
+                android:text="1"
+                android:textColor="@color/colorWhite" />
         </TableRow>
 
         <TableRow android:layout_weight="1">
 
             <TextView
-                android:id="@+id/classB"
+                android:id="@+id/class2"
                 android:layout_height="match_parent"
                 android:background="@drawable/cell_shape_time"
                 android:gravity="center"
-                android:text="B" />
+                android:text="2"
+                android:textColor="@color/colorWhite" />
         </TableRow>
 
         <TableRow android:layout_weight="1">
 
             <TextView
-                android:id="@+id/classC"
+                android:id="@+id/class3"
                 android:layout_height="match_parent"
                 android:background="@drawable/cell_shape_time"
                 android:gravity="center"
-                android:text="C" />
+                android:text="3"
+                android:textColor="@color/colorWhite" />
         </TableRow>
 
         <TableRow android:layout_weight="1">
 
             <TextView
-                android:id="@+id/classD"
+                android:id="@+id/class4"
                 android:layout_height="match_parent"
                 android:background="@drawable/cell_shape_time"
                 android:gravity="center"
-                android:text="D" />
+                android:text="4"
+                android:textColor="@color/colorWhite" />
         </TableRow>
 
         <TableRow android:layout_weight="1">
 
             <TextView
-                android:id="@+id/classE"
+                android:id="@+id/class5"
                 android:layout_height="match_parent"
                 android:background="@drawable/cell_shape_time"
                 android:gravity="center"
-                android:text="E" />
+                android:text="5"
+                android:textColor="@color/colorWhite" />
         </TableRow>
 
         <TableRow android:layout_weight="1">
 
             <TextView
-                android:id="@+id/classF"
+                android:id="@+id/class6"
                 android:layout_height="match_parent"
                 android:background="@drawable/cell_shape_time"
                 android:gravity="center"
-                android:text="F" />
+                android:text="6"
+                android:textColor="@color/colorWhite" />
         </TableRow>
 
         <TableRow android:layout_weight="1">
 
             <TextView
-                android:id="@+id/classG"
+                android:id="@+id/class7"
                 android:layout_height="match_parent"
                 android:background="@drawable/cell_shape_time"
                 android:gravity="center"
-                android:text="G" />
+                android:text="7"
+                android:textColor="@color/colorWhite" />
         </TableRow>
 
         <TableRow android:layout_weight="1">
 
             <TextView
-                android:id="@+id/classH"
+                android:id="@+id/class8"
                 android:layout_height="match_parent"
                 android:background="@drawable/cell_shape_time"
                 android:gravity="center"
-                android:text="H" />
+                android:text="8"
+                android:textColor="@color/colorWhite" />
         </TableRow>
     </TableLayout>
 
@@ -112,43 +120,48 @@
 
                 <TextView
                     android:id="@+id/textViewMonday"
-                    android:layout_width="110dp"
+                    android:layout_width="75dp"
                     android:layout_height="40dp"
                     android:background="@drawable/cell_shape_day"
                     android:gravity="center"
-                    android:text="월" />
+                    android:text="월"
+                    android:textColor="@color/colorWhite" />
 
                 <TextView
                     android:id="@+id/textViewTuesday"
-                    android:layout_width="110dp"
+                    android:layout_width="75dp"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_day"
                     android:gravity="center"
-                    android:text="화" />
+                    android:text="화"
+                    android:textColor="@color/colorWhite" />
 
                 <TextView
                     android:id="@+id/textViewWednesday"
-                    android:layout_width="110dp"
+                    android:layout_width="75dp"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_day"
                     android:gravity="center"
-                    android:text="수" />
+                    android:text="수"
+                    android:textColor="@color/colorWhite" />
 
                 <TextView
                     android:id="@+id/textViewThursday"
-                    android:layout_width="110dp"
+                    android:layout_width="75dp"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_day"
                     android:gravity="center"
-                    android:text="목" />
+                    android:text="목"
+                    android:textColor="@color/colorWhite" />
 
                 <TextView
                     android:id="@+id/textViewFriday"
-                    android:layout_width="110dp"
+                    android:layout_width="75dp"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_day"
                     android:gravity="center"
-                    android:text="금" />
+                    android:text="금"
+                    android:textColor="@color/colorWhite" />
 
             </TableRow>
 
@@ -156,168 +169,112 @@
             <TableRow android:layout_weight="1">
 
                 <TextView
-                    android:id="@+id/mondayA"
+                    android:id="@+id/monday1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
-                    android:textColor="@color/colorText"
-                    android:textSize="8sp"
                     android:onClick="ClickMethod"
-                    android:text="" />
+                    android:text=""
+                    android:textColor="@color/colorText"
+                    android:textSize="8sp" />
 
                 <TextView
-                    android:id="@+id/tuesdayA"
+                    android:id="@+id/tuesday1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
-                    android:textColor="@color/colorText"
-                    android:textSize="8sp"
                     android:onClick="ClickMethod"
-                    android:text="" />
+                    android:text=""
+                    android:textColor="@color/colorText"
+                    android:textSize="8sp" />
 
                 <TextView
-                    android:id="@+id/wednesdayA"
+                    android:id="@+id/wednesday1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
-                    android:textColor="@color/colorText"
-                    android:textSize="8sp"
                     android:onClick="ClickMethod"
-                    android:text="" />
+                    android:text=""
+                    android:textColor="@color/colorText"
+                    android:textSize="8sp" />
 
                 <TextView
-                    android:id="@+id/thursdayA"
+                    android:id="@+id/thursday1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
 
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
 
                 <TextView
-                    android:id="@+id/fridayA"
+                    android:id="@+id/friday1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
             </TableRow>
 
 
             <TableRow android:layout_weight="1">
 
                 <TextView
-                    android:id="@+id/mondayB"
+                    android:id="@+id/monday2"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
 
                 <TextView
-                    android:id="@+id/tuesdayB"
+                    android:id="@+id/tuesday2"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
 
                 <TextView
-                    android:id="@+id/wednesdayB"
+                    android:id="@+id/wednesday2"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
 
                 <TextView
-                    android:id="@+id/thursdayB"
+                    android:id="@+id/thursday2"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
 
                 <TextView
-                    android:id="@+id/fridayB"
+                    android:id="@+id/friday2"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
-
-            </TableRow>
-
-
-            <TableRow android:layout_weight="1">
-
-                <TextView
-                    android:id="@+id/mondayC"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/cell_shape_schedule"
-                    android:gravity="center"
-                    android:textColor="@color/colorText"
-                    android:textSize="8sp"
-
-                    android:text="" />
-
-                <TextView
-                    android:id="@+id/tuesdayC"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/cell_shape_schedule"
-                    android:gravity="center"
-                    android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
-
-                <TextView
-                    android:id="@+id/wednesdayC"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/cell_shape_schedule"
-                    android:gravity="center"
-                    android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
-
-                <TextView
-                    android:id="@+id/thursdayC"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/cell_shape_schedule"
-                    android:gravity="center"
-                    android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
-
-                <TextView
-                    android:id="@+id/fridayC"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/cell_shape_schedule"
-                    android:gravity="center"
-                    android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
 
             </TableRow>
 
@@ -325,54 +282,110 @@
             <TableRow android:layout_weight="1">
 
                 <TextView
-                    android:id="@+id/mondayD"
+                    android:id="@+id/monday3"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+
+                    android:textSize="8sp" />
 
                 <TextView
-                    android:id="@+id/tuesdayD"
+                    android:id="@+id/tuesday3"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
 
                 <TextView
-                    android:id="@+id/wednesdayD"
+                    android:id="@+id/wednesday3"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
 
                 <TextView
-                    android:id="@+id/thursdayD"
+                    android:id="@+id/thursday3"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
 
                 <TextView
-                    android:id="@+id/fridayD"
+                    android:id="@+id/friday3"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
+
+            </TableRow>
+
+
+            <TableRow android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/monday4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/cell_shape_schedule"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/colorText"
+                    android:textSize="8sp" />
+
+                <TextView
+                    android:id="@+id/tuesday4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/cell_shape_schedule"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/colorText"
+                    android:textSize="8sp" />
+
+                <TextView
+                    android:id="@+id/wednesday4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/cell_shape_schedule"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/colorText"
+                    android:textSize="8sp" />
+
+                <TextView
+                    android:id="@+id/thursday4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/cell_shape_schedule"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/colorText"
+                    android:textSize="8sp" />
+
+                <TextView
+                    android:id="@+id/friday4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/cell_shape_schedule"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/colorText"
+                    android:textSize="8sp" />
 
 
             </TableRow>
@@ -381,54 +394,54 @@
             <TableRow android:layout_weight="1">
 
                 <TextView
-                    android:id="@+id/mondayE"
+                    android:id="@+id/monday5"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
 
                 <TextView
-                    android:id="@+id/tuesdayE"
+                    android:id="@+id/tuesday5"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
 
                 <TextView
-                    android:id="@+id/wednesdayE"
+                    android:id="@+id/wednesday5"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
 
                 <TextView
-                    android:id="@+id/thursdayE"
+                    android:id="@+id/thursday5"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
 
                 <TextView
-                    android:id="@+id/fridayE"
+                    android:id="@+id/friday5"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
 
             </TableRow>
 
@@ -436,54 +449,54 @@
             <TableRow android:layout_weight="1">
 
                 <TextView
-                    android:id="@+id/mondayF"
+                    android:id="@+id/monday6"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
 
                 <TextView
-                    android:id="@+id/tuesdayF"
+                    android:id="@+id/tuesday6"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
 
                 <TextView
-                    android:id="@+id/wednesdayF"
+                    android:id="@+id/wednesday6"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />r
+                    android:textSize="8sp" />r
 
                 <TextView
-                    android:id="@+id/thursdayF"
+                    android:id="@+id/thursday6"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
 
                 <TextView
-                    android:id="@+id/fridayF"
+                    android:id="@+id/friday6"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
 
             </TableRow>
 
@@ -491,54 +504,54 @@
             <TableRow android:layout_weight="1">
 
                 <TextView
-                    android:id="@+id/mondayG"
+                    android:id="@+id/monday7"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
 
                 <TextView
-                    android:id="@+id/tuesdayG"
+                    android:id="@+id/tuesday7"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
 
                 <TextView
-                    android:id="@+id/wednesdayG"
+                    android:id="@+id/wednesday7"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
 
                 <TextView
-                    android:id="@+id/thursdayG"
+                    android:id="@+id/thursday7"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
 
                 <TextView
-                    android:id="@+id/fridayG"
+                    android:id="@+id/friday7"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
 
             </TableRow>
 
@@ -546,55 +559,54 @@
             <TableRow android:layout_weight="1">
 
                 <TextView
-                    android:id="@+id/mondayH"
+                    android:id="@+id/monday8"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
 
                 <TextView
-                    android:id="@+id/tuesdayH"
+                    android:id="@+id/tuesday8"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
 
                 <TextView
-                    android:id="@+id/wednesdayH"
+                    android:id="@+id/wednesday8"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
 
                 <TextView
-                    android:id="@+id/thursdayH"
+                    android:id="@+id/thursday8"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
+                    android:textSize="8sp" />
 
                 <TextView
-                    android:id="@+id/fridayH"
+                    android:id="@+id/friday8"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:text=""
                     android:textColor="@color/colorText"
-                    android:textSize="8sp"
-                    android:text="" />
-
+                    android:textSize="8sp" />
 
 
             </TableRow>
