@@ -6,6 +6,7 @@
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/drawable-v24/cell_shape.xml" value="0.24722222222222223" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/drawable-v24/cell_shape_day.xml" value="0.14583333333333334" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/drawable-v24/cell_shape_time.xml" value="0.14583333333333334" />
+        <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/drawable-v24/cell_shape_update.xml" value="0.146875" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/drawable-v24/selector.xml" value="0.146875" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/drawable/view_boarder.xml" value="0.1" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/drawable/write.xml" value="0.1" />
@@ -14,18 +15,18 @@
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_calender.xml" value="0.12142857142857143" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_comment.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_comment_list.xml" value="0.16" />
-        <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_google_login.xml" value="0.1" />
+        <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_google_login.xml" value="0.2" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_login.xml" value="0.152" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_main.xml" value="0.176" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_note_preview.xml" value="0.12135416666666667" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_note_write.xml" value="0.12135416666666667" />
-        <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_schedule.xml" value="0.1" />
+        <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_schedule.xml" value="0.136" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_setting.xml" value="0.176" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/fragment_board.xml" value="0.13072916666666667" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/fragment_calender.xml" value="0.12135416666666667" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/fragment_common_board.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/fragment_developer_dialog.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/fragment_home.xml" value="0.2074074074074074" />
+        <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/fragment_home_dialog.xml" value="0.2074074074074074" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/fragment_notice.xml" value="0.16" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/fragment_schedule.xml" value="0.264" />

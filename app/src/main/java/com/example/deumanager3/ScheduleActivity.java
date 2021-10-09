@@ -10,6 +10,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import com.example.deumanager3.model.ScheduleModel;
+import com.example.deumanager3.singleton.Schedule;
+import com.google.firebase.database.DatabaseReference;
 
 import java.util.List;
 
@@ -19,19 +24,27 @@ public class ScheduleActivity extends AppCompatActivity {
     private ActionBar actionBar;
     private TextView toolbarText;
     private ImageButton writeButton;
+    private FragmentManager fragmentManager;
+    private static ScheduleFragment scheduleFragment;
+    private static NoticeFragment sNoticeFragment = new NoticeFragment();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule);
         toolbarText = findViewById(R.id.toolbartext);
         final Toolbar toolbar = findViewById(R.id.toolbar);
+        fragmentManager = getSupportFragmentManager();
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         actionBar = getSupportActionBar();
         actionBar.setDisplayShowCustomEnabled(true); //커스터마이징 하기 위해 필요
         actionBar.setDisplayShowTitleEnabled(false);
         toolbarText.setText("SCHEDULE");
+        FragmentManager fm = getSupportFragmentManager();
+
+        fm.beginTransaction().add(R.id.fragment_schedule, new ScheduleFragment()).commit();
         writeButton = findViewById(R.id.writing_button);
         writeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,7 +55,34 @@ public class ScheduleActivity extends AppCompatActivity {
             }
         });
     }
+    private void replaceFragment(Fragment fm) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fm).commit();
+    }
+    public void setDefaultFragment() {
 
+
+
+        //화면에 보여지는 fragment를 추가하거나 바꿀 수 있는 객체를 만든다.
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+
+
+        //첫번째로 보여지는 fragment는 firstFragment로 설정한다.
+
+        transaction.add(R.id.container, scheduleFragment);
+
+
+
+        //fragment의 변경사항을 반영시킨다.
+
+        transaction.commit();
+
+
+
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
