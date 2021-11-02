@@ -5,16 +5,17 @@ public class Schedule {
     private String classRoom;
     private String classDay;
     private String classTime;
-
+    private String authorUid;
     public Schedule() {
 
     }
 
-    public Schedule(String className, String classRoom, String classDay, String classTime) {
+    public Schedule(String className, String classRoom, String classDay, String classTime, String authorUid) {
         this.className = className;
         this.classRoom = classRoom;
         this.classDay = classDay;
         this.classTime = classTime;
+        this.authorUid = User.getInstance().getUid();
     }
 
 
@@ -34,9 +35,11 @@ public class Schedule {
         return classTime;
     }
 
+    public String getClassUid() { return authorUid; }
 
-    public static Schedule newSchedule(String className, String classRoom, String classDay, String classTime) {
-        return new Schedule(className, classRoom, classDay, classTime);
+
+    public static Schedule newSchedule(String className, String classRoom, String classDay, String classTime, String authorUid) {
+        return new Schedule(className, classRoom, classDay, classTime, authorUid);
     }
 
 

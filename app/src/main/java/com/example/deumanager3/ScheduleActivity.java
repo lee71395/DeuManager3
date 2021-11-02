@@ -36,6 +36,8 @@ public class ScheduleActivity extends AppCompatActivity {
         fragmentManager = getSupportFragmentManager();
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
 
         actionBar = getSupportActionBar();
@@ -55,34 +57,7 @@ public class ScheduleActivity extends AppCompatActivity {
             }
         });
     }
-    private void replaceFragment(Fragment fm) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, fm).commit();
-    }
-    public void setDefaultFragment() {
 
-
-
-        //화면에 보여지는 fragment를 추가하거나 바꿀 수 있는 객체를 만든다.
-
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-
-
-
-        //첫번째로 보여지는 fragment는 firstFragment로 설정한다.
-
-        transaction.add(R.id.container, scheduleFragment);
-
-
-
-        //fragment의 변경사항을 반영시킨다.
-
-        transaction.commit();
-
-
-
-    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

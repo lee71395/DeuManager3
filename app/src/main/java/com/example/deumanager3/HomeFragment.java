@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.app.Fragment;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.deumanager3.singleton.Dday;
+import com.example.deumanager3.singleton.User;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -45,7 +47,6 @@ public class HomeFragment extends ToolBarFragment {
     private TextView tname;
     private TextView email;
 
-
     private ImageView phone;
     private ImageView map;
     private ImageView bus;
@@ -68,6 +69,12 @@ public class HomeFragment extends ToolBarFragment {
     private int dYear=1;        //디데이 연월일 변수
     private int dMonth=1;
     private int dDay=1;
+    private int dYear2 = 1;
+    private int dMonth2 = 1;
+    private int dDay2 = 1;
+    private String dAuthorUid;
+    private String myUid = dAuthorUid;
+
 
 
     private long d;
@@ -142,6 +149,9 @@ public class HomeFragment extends ToolBarFragment {
         dateButton=view.findViewById(R.id.dateButton);
         tname.setText(user.getDisplayName());
         email.setText(user.getEmail());
+        ddayText2 = view.findViewById(R.id.dday2);
+        resultText2 = view.findViewById(R.id.result2);
+        dateButton2 = view.findViewById(R.id.dateButton2);
 
         dateButton.setOnClickListener(new View.OnClickListener() {
 
@@ -153,9 +163,7 @@ public class HomeFragment extends ToolBarFragment {
                 check=1;
             }
         });
-        ddayText2 = view.findViewById(R.id.dday2);
-        resultText2 = view.findViewById(R.id.result2);
-        dateButton2 = view.findViewById(R.id.dateButton2);
+
         dateButton2.setOnClickListener(new View.OnClickListener() {
 
 
@@ -227,31 +235,67 @@ public class HomeFragment extends ToolBarFragment {
         @Override
         public void onDateSet( DatePicker view, int year, int monthOfYear,
                                int dayOfMonth) {
-            // TODO Auto-generated method stub
-            mDatabaseRef = FirebaseDatabase.getInstance().getReference();
-            dYear = year;
-            dMonth = monthOfYear;
-            dDay = dayOfMonth;
-            final Calendar dCalendar = Calendar.getInstance();
-            dCalendar.set(dYear, dMonth, dDay);
+           if (check == 1) {
+               // TODO Auto-generated method stub
+               mDatabaseRef = FirebaseDatabase.getInstance().getReference();
+               dYear = year;
+               dMonth = monthOfYear;
+               dDay = dayOfMonth;
+               dAuthorUid = User.getInstance().getUid();
+               final Calendar dCalendar = Calendar.getInstance();
+               dCalendar.set(dYear, dMonth, dDay);
 
-            d = dCalendar.getTimeInMillis();
-            r = (d - t) / (24 * 60 * 60 * 1000);
+               d = dCalendar.getTimeInMillis();
+               r = (d - t) / (24 * 60 * 60 * 1000);
 
-            resultNumber = (int) r;
-            updateDisplay();
-            writeNewUser(String.valueOf(r), dYear, dMonth, dDay);
+               resultNumber = (int) r;
+               updateDisplay();
+               writeNewUser(String.valueOf(r), dYear, dMonth, dDay, dAuthorUid);
+           }
+           else if(check == 2) {
+               // TODO Auto-generated method stub
+               mDatabaseRef = FirebaseDatabase.getInstance().getReference();
+               dYear2 = year;
+               dMonth2 = monthOfYear;
+               dDay2 = dayOfMonth;
+               dAuthorUid = User.getInstance().getUid();
+               final Calendar dCalendar = Calendar.getInstance();
+               dCalendar.set(dYear, dMonth, dDay);
+
+               d = dCalendar.getTimeInMillis();
+               r = (d - t) / (24 * 60 * 60 * 1000);
+
+               resultNumber = (int) r;
+               updateDisplay();
+               writeNewUser2(String.valueOf(r), dYear, dMonth, dDay, dAuthorUid);
+           }
         }
-        private void writeNewUser(String result, int year, int month, int day) {
-            Dday dday = new Dday(year, month, day, result);
+        private void writeNewUser(String result, int year, int month, int day, String authorUid) {
+            if (check == 1) {
+                Dday dday = new Dday(result, year, month, day, authorUid);
 
-            mDatabaseRef.child("Dday").child(result).setValue(dday)
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void unused) {
+                mDatabaseRef.child("Dday").child(authorUid).setValue(dday)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
 
-                        }
-                    });
+                            }
+                        });
+            }
+
+        }
+        private void writeNewUser2 (String result2,int year2, int month2, int day2, String authorUid) {
+            if (check == 2) {
+                Dday dday = new Dday(result2, year2, month2, day2, authorUid);
+
+                mDatabaseRef.child("Dday2").child(authorUid).setValue(dday)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+
+                            }
+                        });
+            }
         }
     };
     public void setName(String name) {

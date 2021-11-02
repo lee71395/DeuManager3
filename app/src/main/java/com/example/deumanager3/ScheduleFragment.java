@@ -10,10 +10,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.example.deumanager3.model.ScheduleModel;
 import com.example.deumanager3.singleton.Schedule;
 import com.google.firebase.database.DatabaseReference;
-
+import com.example.deumanager3.ScheduleDialogFragment;
 import java.util.List;
 
 public class ScheduleFragment extends ToolBarFragment {
@@ -106,7 +107,7 @@ public class ScheduleFragment extends ToolBarFragment {
                     @Override
                     public void finish(Object result) {
                         schedule = (Schedule) result;
-                        scheduleModel.writeSchedule(schedule.getClassName(), schedule.getClassRoom(), schedule.getClassDay(), schedule.getClassTime());
+                        scheduleModel.writeSchedule(schedule.getClassName(), schedule.getClassRoom(), schedule.getClassDay(), schedule.getClassTime(),schedule.getClassUid());
                         createView(schedule.getClassName(), schedule.getClassRoom(), schedule.getClassDay(), schedule.getClassTime());
                     }
                 });

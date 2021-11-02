@@ -39,7 +39,7 @@ public class Comment {
 
     private static String timeStamp() {
         Date date = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy. MM. dd.", Locale.KOREA);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy. MM. dd. hh. mm. ss.", Locale.KOREA);
 
         return dateFormat.format(date);
     }
