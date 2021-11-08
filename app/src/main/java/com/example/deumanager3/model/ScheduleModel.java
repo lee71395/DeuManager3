@@ -1,6 +1,7 @@
 package com.example.deumanager3.model;
 
 import com.example.deumanager3.singleton.Schedule;
+import com.example.deumanager3.singleton.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,8 +34,8 @@ public class ScheduleModel {
                     String classRoom = ds.getValue(Schedule.class).getClassRoom();
                     String classDay = ds.getValue(Schedule.class).getClassDay();
                     String classTime = ds.getValue(Schedule.class).getClassTime();
-
-                    Schedule schedule = new Schedule(className, classRoom, classDay, classTime);
+                    String authorUid = User.getInstance().getUid();
+                    Schedule schedule = new Schedule(className, classRoom, classDay, classTime,authorUid);
                     addScheduleModel(schedule);
                 }
             }
@@ -48,9 +49,9 @@ public class ScheduleModel {
     }
 
 
-    public void writeSchedule(String className, String classRoom, String classDay, String classTime) {
+    public void writeSchedule(String className, String classRoom, String classDay, String classTime,String authorUid) {
         databaseReference = FirebaseDatabase.getInstance().getReference();
         databaseReference.child("시간표").
-                push().setValue(Schedule.newSchedule(className, classRoom, classDay, classTime));
+                push().setValue(Schedule.newSchedule(className, classRoom, classDay, classTime,authorUid));
     }
 }

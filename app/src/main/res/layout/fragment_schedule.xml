@@ -108,7 +108,7 @@
     </TableLayout>
 
     <HorizontalScrollView
-        android:layout_width="match_parent"
+        android:layout_width="375dp"
         android:layout_height="match_parent">
 
         <TableLayout
@@ -170,7 +170,7 @@
 
                 <TextView
                     android:id="@+id/monday1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
@@ -181,7 +181,7 @@
 
                 <TextView
                     android:id="@+id/tuesday1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
@@ -207,7 +207,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
-
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -218,6 +218,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -232,6 +233,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -242,6 +244,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -252,6 +255,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -262,6 +266,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -272,6 +277,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -287,6 +293,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
 
@@ -298,6 +305,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -308,6 +316,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -318,6 +327,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -328,6 +338,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -343,6 +354,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -353,6 +365,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -363,6 +376,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -373,6 +387,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -383,6 +398,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -399,6 +415,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -409,6 +426,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -419,6 +437,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -429,6 +448,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -439,6 +459,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -454,6 +475,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -464,6 +486,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -474,6 +497,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />r
@@ -484,6 +508,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -494,6 +519,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -509,6 +535,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -519,6 +546,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -529,6 +557,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -539,6 +568,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -549,6 +579,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -564,6 +595,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -574,6 +606,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -584,6 +617,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -594,6 +628,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -604,6 +639,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
+                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />

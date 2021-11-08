@@ -45,7 +45,7 @@ public class CalendarModel {
                     int getDay = ds.getValue(CalendarSingle.class).getDay();
                     Log.i("가져옴", valueOf(getDay));
                     String getNote = ds.getValue(CalendarSingle.class).getNote();
-
+                    Log.i("가져옴", valueOf(getNote));
                     CalendarSingle calendarSingle = new CalendarSingle(getNote, getYear, getMonth, getDay, "캘린더");
                     addCalendarModel(calendarSingle);
                 }

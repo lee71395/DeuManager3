@@ -22,11 +22,14 @@ import com.example.deumanager3.singleton.Schedule;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 public class CalendarActivity extends AppCompatActivity {
     public static final String RESULT = "result";
@@ -41,7 +44,7 @@ public class CalendarActivity extends AppCompatActivity {
     private List<EventDay> gEventDats = new ArrayList <>();
     private List<Schedule> mSchedules = new ArrayList <>();
     private ScheduleModel scheduleModel = new ScheduleModel();
-
+    private CalendarSingle calendarSingle = new CalendarSingle();
 
     private ProgressDialog progressDialog;
     private DatabaseReference databaseReference;
@@ -58,7 +61,6 @@ public class CalendarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calender);
         mCalendarView = (CalendarView) findViewById(R.id.calendarView);
-
         Calendar calendar1 = Calendar.getInstance();
         calendar1.getTime();
         List<EventDay> eventDay = new ArrayList <>();
@@ -66,6 +68,7 @@ public class CalendarActivity extends AppCompatActivity {
         mCalendarView.setDate(calendar1);
         mCalendarView.setEvents(eventDay);
 
+//        calendarModel.addCalendarModel(calendarSingle);
         this.mSchedules = scheduleModel.getSchedules();
 
         this.gCalendarSingles = calendarModel.getmCalendars();
@@ -120,7 +123,25 @@ public class CalendarActivity extends AppCompatActivity {
 
     }
 
+    public void readNote() {
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        String Type = calendarSingle.getType();
+        databaseReference.child("캘린더").child(Type).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                CalendarSingle calendarSingle1 = snapshot.getValue(CalendarSingle.class);
+                int year = calendarSingle1.getYear();
+                int month = calendarSingle1.getMonth();
+                int day = calendarSingle1.getDay();
 
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == ADD_NOTE && resultCode == RESULT_OK) {
