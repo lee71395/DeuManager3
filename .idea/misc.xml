@@ -22,7 +22,6 @@
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_note_write.xml" value="0.12135416666666667" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_schedule.xml" value="0.136" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/activity_setting.xml" value="0.176" />
-        <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/fragment_blank.xml" value="0.264" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/fragment_board.xml" value="0.13072916666666667" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/fragment_calender.xml" value="0.12135416666666667" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/fragment_common_board.xml" value="0.25364583333333335" />
@@ -30,17 +29,16 @@
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/fragment_home_dialog.xml" value="0.2074074074074074" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/fragment_notice.xml" value="0.16" />
-        <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/fragment_schedule.xml" value="0.25" />
+        <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/fragment_schedule.xml" value="0.264" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/fragment_schedule_delete_dialog.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/fragment_schedule_dialog.xml" value="0.176" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/fragment_schedule_toolbar.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/fragment_version_dialog.xml" value="0.1296875" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/layout/scroll_item.xml" value="0.264" />
-        <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/menu/menu_action_bar.xml" value="0.264" />
+        <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/menu/menu_action_bar.xml" value="0.1" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/menu/menu_board.xml" value="0.2064814814814815" />
-        <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.264" />
+        <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/menu/menu_schedule.xml" value="0.2064814814814815" />
-        <entry key="..\:/Users/user/StudioProjects/DeuManager3/app/src/main/res/menu/popup_menu.xml" value="0.25364583333333335" />
       </map>
     </option>
   </component>
