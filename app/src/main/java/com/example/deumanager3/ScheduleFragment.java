@@ -1,11 +1,14 @@
 package com.example.deumanager3;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.provider.ContactsContract;
 import android.util.Log;
@@ -57,6 +60,10 @@ public class ScheduleFragment extends ToolBarFragment {
     private String className;
     private String sAuthorUid = User.getInstance().getUid();
     public void addScheduleModel(Schedule schedule) { mSchedules.add(schedule);}
+    private ScheduleFragment scheduleFragment;
+    private FragmentManager fragmentManager;
+    private String sDay[] = {"월요일","화요일","수요일","목요일","금요일"};
+
 
 
 //
@@ -64,6 +71,7 @@ public class ScheduleFragment extends ToolBarFragment {
 //    public static ScheduleFragment newInstance() {
 //        return sFragment;
 //    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -114,800 +122,60 @@ public class ScheduleFragment extends ToolBarFragment {
         friday[5] = view.findViewById(R.id.friday6);
         friday[6] = view.findViewById(R.id.friday7);
         friday[7] = view.findViewById(R.id.friday8);
-        databaseReference.child("시간표").child(sAuthorUid).child("월요일").child("1").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    monday[0].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("월요일").child("2").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    monday[1].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("월요일").child("3").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    monday[2].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("월요일").child("4").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    monday[3].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("월요일").child("5").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    monday[4].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("월요일").child("6").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    monday[5].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("월요일").child("7").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    monday[6].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("월요일").child("8").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    monday[7].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("화요일").child("1").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    tuesday[0].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("화요일").child("2").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    tuesday[1].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("화요일").child("3").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    tuesday[2].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("화요일").child("4").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    tuesday[3].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("화요일").child("5").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    tuesday[4].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("화요일").child("6").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    tuesday[5].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("화요일").child("7").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    tuesday[6].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("화요일").child("8").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    tuesday[7].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("수요일").child("1").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    wednesday[0].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("수요일").child("2").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    wednesday[1].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("수요일").child("3").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    wednesday[2].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("수요일").child("4").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    wednesday[3].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("수요일").child("5").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    wednesday[4].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("수요일").child("6").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    wednesday[5].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("수요일").child("7").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    wednesday[6].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("수요일").child("8").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    wednesday[7].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("목요일").child("1").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    thursday[0].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("목요일").child("2").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    thursday[1].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("목요일").child("3").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    thursday[2].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("목요일").child("4").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    thursday[3].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("목요일").child("5").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    thursday[4].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("목요일").child("6").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    thursday[5].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("목요일").child("7").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    thursday[6].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("목요일").child("8").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    thursday[7].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("금요일").child("1").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    friday[0].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("금요일").child("2").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    friday[1].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("금요일").child("3").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    friday[2].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("금요일").child("4").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    friday[3].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("금요일").child("5").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    friday[4].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("금요일").child("6").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    friday[5].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("금요일").child("7").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    friday[6].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-        databaseReference.child("시간표").child(sAuthorUid).child("금요일").child("8").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Schedule schedule1 = snapshot.getValue(Schedule.class);
-                if(snapshot.getValue() == null){
-                    return;
-                }
-                else {
-                    className = schedule1.getClassName();
-                    classRoom = schedule1.getClassRoom();
-                    friday[7].setText(String.format("%s\n%s",className,classRoom));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
+        UpdateSchedule();
+//        monday[0].setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                FragmentManager manager = getFragmentManager();
+//                ScheduleDeleteDialogFragment deleteDialogFragment = new ScheduleDeleteDialogFragment();
+//                deleteDialogFragment.show(manager, DIALOG_SCHEDULE);
+//                deleteDialogFragment.setDeleteDialogResult(new ScheduleDeleteDialogFragment.OnMyDeleteDialogResult() {
+//                    @Override
+//                    public void delete(boolean result) {
+//                        scheduleDelete = result;
+//                        if(scheduleDelete){
+//                            databaseReference.child("시간표").child(sAuthorUid).child("월요일").child("1").setValue(null);
+//                            UpdateSchedule();
+//                        }
+//                    }
+//                });
+//
+//            }
+//        });
         for ( int i = 0 ; i < 8 ; i++) {
+            int sTime = i + 1;
             monday[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    DeleteClass(view);
+                    DeleteClass(view, sDay[0], sTime);
                 }
             });
             tuesday[i].setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View view) {
-                    DeleteClass(view);
-                }
+                public void onClick(View view) { DeleteClass(view, sDay[1], sTime); }
             });
             wednesday[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    DeleteClass(view);
+                    DeleteClass(view, sDay[2], sTime);
                 }
             });
             thursday[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    DeleteClass(view);
+                    DeleteClass(view, sDay[3], sTime);
                 }
             });
             friday[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    DeleteClass(view);
+                    DeleteClass(view, sDay[4], sTime);
                 }
             });
         }
 
-        StartCreateView();
+//        StartCreateView();
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -928,67 +196,121 @@ public class ScheduleFragment extends ToolBarFragment {
 
         return view;
     }
-
-    private void setClassData() {
-        databaseReference.child("시간표").child(sAuthorUid).child("classDay").setValue(schedule.getClassDay());
-        databaseReference.child("시간표").child(sAuthorUid).child("classTime").setValue(schedule.getClassTime());
-        databaseReference.child("시간표").child(sAuthorUid).child("classRoom").setValue(schedule.getClassRoom());
-        databaseReference.child("시간표").child(sAuthorUid).child("className").setValue(schedule.getClassName());
-    }
-
-
-    public void StartCreateView(){
-        this.mSchedules = scheduleModel.getSchedules();
-        for (int i = 0; i < mSchedules.size(); i++) {
-            createView(mSchedules.get(i).getClassName(), mSchedules.get(i).getClassRoom(), mSchedules.get(i).getClassDay(), mSchedules.get(i).getClassTime());
-        }
-    }
-    public void ListRemove(String name, String time) {
-        mSchedules = scheduleModel.getSchedules();
-        for (int i = 0; i < mSchedules.size(); i++) {
-            if (mSchedules.get(i).getClassDay().equals(name)) {
-                if (mSchedules.get(i).getClassTime().equals(time)) {
-                    mSchedules.remove(mSchedules.get(i));
+    public void UpdateSchedule() {
+        for (int i = 1; i <= 8; i++){
+            int j = i-1;
+            String istring = Integer.toString(i);
+            databaseReference.child("시간표").child(sAuthorUid).child("월요일").child(istring).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    Schedule schedule1 = snapshot.getValue(Schedule.class);
+                    if(snapshot.getValue() == null){
+                        monday[j].setText(null);
+                    }
+                    else {
+                        className = schedule1.getClassName();
+                        classRoom = schedule1.getClassRoom();
+                        monday[j].setText(String.format("%s\n%s",className,classRoom));
+                    }
                 }
-            }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
+                }
+            });
+            databaseReference.child("시간표").child(sAuthorUid).child("화요일").child(istring).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    Schedule schedule1 = snapshot.getValue(Schedule.class);
+                    if(snapshot.getValue() == null){
+                        tuesday[j].setText(null);
+                    }
+                    else {
+                        className = schedule1.getClassName();
+                        classRoom = schedule1.getClassRoom();
+                        tuesday[j].setText(String.format("%s\n%s",className,classRoom));
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
+                }
+            }); databaseReference.child("시간표").child(sAuthorUid).child("수요일").child(istring).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    Schedule schedule1 = snapshot.getValue(Schedule.class);
+                    if(snapshot.getValue() == null){
+                        wednesday[j].setText(null);
+                    }
+                    else {
+                        className = schedule1.getClassName();
+                        classRoom = schedule1.getClassRoom();
+                        wednesday[j].setText(String.format("%s\n%s",className,classRoom));
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
+                }
+            }); databaseReference.child("시간표").child(sAuthorUid).child("목요일").child(istring).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    Schedule schedule1 = snapshot.getValue(Schedule.class);
+                    if(snapshot.getValue() == null){
+                        thursday[j].setText(null);
+                    }
+                    else {
+                        className = schedule1.getClassName();
+                        classRoom = schedule1.getClassRoom();
+                        thursday[j].setText(String.format("%s\n%s",className,classRoom));
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
+                }
+            }); databaseReference.child("시간표").child(sAuthorUid).child("금요일").child(istring).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    Schedule schedule1 = snapshot.getValue(Schedule.class);
+                    if(snapshot.getValue() == null){
+                        friday[j].setText(null);
+                    }
+                    else {
+                        className = schedule1.getClassName();
+                        classRoom = schedule1.getClassRoom();
+                        friday[j].setText(String.format("%s\n%s",className,classRoom));
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Log.e("ScheduleFragment", String.valueOf(error.toException())); // 에러문 출력
+                }
+            });
         }
     }
 
-    public void DeleteClass(View v) {
+
+
+    public void DeleteClass(View v, String sDay, int sTime) {
         FragmentManager manager = getFragmentManager();
         ScheduleDeleteDialogFragment deleteDialogFragment = new ScheduleDeleteDialogFragment();
         deleteDialogFragment.show(manager, DIALOG_SCHEDULE);
-        final TextView text = (TextView) v;
         deleteDialogFragment.setDeleteDialogResult(new ScheduleDeleteDialogFragment.OnMyDeleteDialogResult() {
             @Override
             public void delete(boolean result) {
                 scheduleDelete = result;
-                if (scheduleDelete) {
-                    switch (text.getId()) {
-                        case R.id.monday1:
-                            ListRemove("월요일", "1");
-                            StartCreateView();
-                        case R.id.monday2:
-                            ListRemove("월요일", "2");
-                        case R.id.monday3:
-                            ListRemove("월요일", "3");
-                        case R.id.monday4:
-                            ListRemove("월요일", "4");
-                        case R.id.monday5:
-                            ListRemove("월요일", "5");
-                        case R.id.monday6:
-                            ListRemove("월요일", "6");
-                        case R.id.monday7:
-                            ListRemove("월요일", "7");
-                        case R.id.monday8:
-                            ListRemove("월요일", "8");
-
-                    }
-
+                if(scheduleDelete){
+                    databaseReference.child("시간표").child(sAuthorUid).child(sDay).child(Integer.toString(sTime)).setValue(null);
+                    UpdateSchedule();
                 }
             }
         });
-
     }
 
     public void createView(String name, String room, String day, String time) {

@@ -123,17 +123,18 @@ public class CalendarActivity extends AppCompatActivity {
 
     }
 
-    public void readNote() {
+    public void readCalendar() {
         databaseReference = FirebaseDatabase.getInstance().getReference();
         String Type = calendarSingle.getType();
         databaseReference.child("캘린더").child(Type).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Calendar calendar = Calendar.getInstance();
                 CalendarSingle calendarSingle1 = snapshot.getValue(CalendarSingle.class);
                 int year = calendarSingle1.getYear();
                 int month = calendarSingle1.getMonth();
                 int day = calendarSingle1.getDay();
-
+                calendar.set(year,month,day);
             }
 
             @Override
