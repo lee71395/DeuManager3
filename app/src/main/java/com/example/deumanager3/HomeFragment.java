@@ -20,6 +20,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.applandeo.materialcalendarview.EventDay;
+import com.example.deumanager3.model.OnDataChangedListener;
+import com.example.deumanager3.singleton.CalendarSingle;
 import com.example.deumanager3.singleton.Dday;
 import com.example.deumanager3.singleton.Schedule;
 import com.example.deumanager3.singleton.User;
@@ -35,6 +38,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.net.HttpCookie;
 import java.util.Calendar;
+import java.util.List;
 
 public class HomeFragment extends ToolBarFragment {
 
@@ -53,7 +57,7 @@ public class HomeFragment extends ToolBarFragment {
     private ImageView map;
     private ImageView bus;
     private ImageView homepage;
-
+    private OnDataChangedListener onDataChangedListener;
 
     private TextView ddayText;
     private TextView todayText;
@@ -76,6 +80,7 @@ public class HomeFragment extends ToolBarFragment {
     private int dDay2 = 1;
     private String dAuthorUid = null;
     private String myUid = dAuthorUid;
+    private TextView todayschedule;
 
     private long d;
     private long t;
@@ -100,6 +105,7 @@ public class HomeFragment extends ToolBarFragment {
         map = view.findViewById(R.id.map);
         readDDay();
         readDDay2();
+        loadschedule();
         //bus = view.findViewById(R.id.bus);
         //homepage = view.findViewById(R.id.homepage);
 
@@ -154,6 +160,8 @@ public class HomeFragment extends ToolBarFragment {
         ddayText2 = view.findViewById(R.id.dday2);
         resultText2 = view.findViewById(R.id.result2);
         dateButton2 = view.findViewById(R.id.dateButton2);
+        todayschedule = view.findViewById(R.id.todaytext);
+
 
         dateButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -348,6 +356,46 @@ public class HomeFragment extends ToolBarFragment {
         });
 
     }
+    private void loadschedule() {
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference();
+        mDatabaseRef.child("캘린더").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+            private List<CalendarSingle> gCalendarSingles;
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (onDataChangedListener != null) {
+                    onDataChangedListener.onDataChanged();
+                }
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    int get_Year = ds.getValue(CalendarSingle.class).getYear();
+                    //            Log.i("연도 가져옴", valueOf(get_Year));
+                    int get_Month = ds.getValue(CalendarSingle.class).getMonth();
+                    //            Log.i("월 가져옴", valueOf(get_Month));
+                    int get_Day = ds.getValue(CalendarSingle.class).getDay();
+                    //            Log.i("일 가져옴", valueOf(get_Day));
+                    String getNote = ds.getValue(CalendarSingle.class).getNote();
+                    //            Log.i("노트 가져옴", valueOf(getNote));
+
+                    if(tYear == get_Year && tMonth + 1 == get_Month &&
+                            tDay == get_Day){
+                        todayschedule.setText(getNote);
+                        break;
+                    }
+                    else{
+                        todayschedule.setText("메모 없음");
+                    }
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
     public void setName(String name) {
         tname.setText(name);
     }

@@ -29,6 +29,7 @@ public class AddNoteActivity extends AppCompatActivity {
     private EditText noteEditText;
     private CalendarSingle calendarSingle;
     private String cAuthoruid = User.getInstance().getUid();
+    private CalendarActivity calendarActivity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -49,7 +50,7 @@ public class AddNoteActivity extends AppCompatActivity {
                 myEventDay = new MyEventDay(datePicker.getSelectedDate(),
                         R.drawable.ic_message_black_48dp, noteEditText.getText().toString());
                 returnIntent.putExtra(CalendarActivity.RESULT, myEventDay);
-                setResult(Activity.RESULT_OK, returnIntent);
+//                setResult(Activity.RESULT_OK, returnIntent);
                 sendCalendar();
 
                 finish();

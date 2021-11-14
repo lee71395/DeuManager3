@@ -46,7 +46,7 @@ public class CalendarActivity extends AppCompatActivity {
     public static final String EVENT = "event";
     private static final int ADD_NOTE = 44;
     private CalendarView mCalendarView;
-//    private DatabaseReference mDatabaseRef;
+    //    private DatabaseReference mDatabaseRef;
     //private TextView textView;
     private List<EventDay> mEventDays = new ArrayList<>();
     private List<CalendarSingle> gCalendarSingles;
@@ -62,7 +62,9 @@ public class CalendarActivity extends AppCompatActivity {
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private TextView noteView;
     private OnDataChangedListener onDataChangedListener;
-
+    private List<EventDay> eventDay = new ArrayList <>();
+    private int get_Year = 0, get_Month = 0, get_Day = 0;
+    String getNote = "";
 
     public String getPostType() {
         return "캘린더";
@@ -75,14 +77,13 @@ public class CalendarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_calender);
         mCalendarView = (CalendarView) findViewById(R.id.calendarView);
         noteView = findViewById(R.id.noteView);
-        Calendar calendar1 = Calendar.getInstance();
-        calendar1.getTime();
-        List<EventDay> eventDay = new ArrayList <>();
-        eventDay.add(new EventDay(calendar1,R.drawable.ic_message_black_48dp));
-        mCalendarView.setDate(calendar1);
-        mCalendarView.setEvents(eventDay);
+//        Calendar calendar1 = Calendar.getInstance();
+//        calendar1.getTime();
+//
+//        eventDay.add(new EventDay(calendar1,R.drawable.ic_message_black_48dp));
+//        mCalendarView.setDate(calendar1);
+//        mCalendarView.setEvents(eventDay);
         readCalendar();
-
 
 //        readCalendar();
 
@@ -103,12 +104,14 @@ public class CalendarActivity extends AppCompatActivity {
         mCalendarView.setOnDayClickListener(new OnDayClickListener() {
             @Override
             public void onDayClick(EventDay eventDay) {
-                previewNote(eventDay);
-//                readCalendar();
+
+                //      previewNote(eventDay);
+                //      UpdateNote();
+                readCalendar();
                 // setTextPreview(eventDay);
             }
         });
-       // textView = findViewById(R.id.preview_note);
+        // textView = findViewById(R.id.preview_note);
         FloatingActionButton floatingActionButton = (FloatingActionButton) findViewById(R.id.floatingActionButton);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,10 +141,11 @@ public class CalendarActivity extends AppCompatActivity {
 //                // ...
 //            }
 //        };
-       // databaseReference.addValueEventListener(calendarlistener);
+        // databaseReference.addValueEventListener(calendarlistener);
 
 
     }
+
 
 
     @Override
@@ -166,10 +170,7 @@ public class CalendarActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
-//    private void setTextPreview(EventDay eventDay) {
-//        textView.setText();
-//        //이후에 캘린더 텍스트뷰에 미리보기 추가
-//    }
+
     private void readCalendar() {
         databaseReference = FirebaseDatabase.getInstance().getReference();
         databaseReference.child("캘린더").child(user.getUid()).addValueEventListener(new ValueEventListener() {
@@ -181,22 +182,29 @@ public class CalendarActivity extends AppCompatActivity {
                     onDataChangedListener.onDataChanged();
                 }
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    int getYear = ds.getValue(CalendarSingle.class).getYear();
-                    Log.i("연도 가져옴", valueOf(getYear));
-                    int getMonth = ds.getValue(CalendarSingle.class).getMonth();
-                    Log.i("월 가져옴", valueOf(getMonth));
-                    int getDay = ds.getValue(CalendarSingle.class).getDay();
-                    Log.i("일 가져옴", valueOf(getDay));
-                    String getNote = ds.getValue(CalendarSingle.class).getNote();
-                    Log.i("노트 가져옴", valueOf(getNote));
+                    get_Year = ds.getValue(CalendarSingle.class).getYear();
+                    //            Log.i("연도 가져옴", valueOf(get_Year));
+                    get_Month = ds.getValue(CalendarSingle.class).getMonth();
+                    //            Log.i("월 가져옴", valueOf(get_Month));
+                    get_Day = ds.getValue(CalendarSingle.class).getDay();
+                    //            Log.i("일 가져옴", valueOf(get_Day));
+                    getNote = ds.getValue(CalendarSingle.class).getNote();
+                    //            Log.i("노트 가져옴", valueOf(getNote));
                     Calendar calendar = Calendar.getInstance();
-                    calendar.set(getYear,getMonth-1,getDay);
-//                    mCalendarView.setDate(calendar);
-                    List<EventDay> eventDay = new ArrayList <>();
+                    calendar.set(get_Year,get_Month-1,get_Day);
+
+                    if(mCalendarView.getSelectedDate().getWeekYear() == get_Year && mCalendarView.getSelectedDate().getTime().getMonth()+1 == get_Month &&
+                            mCalendarView.getSelectedDate().getTime().getDate() == get_Day){
+                        noteView.setText(getNote);
+                        break;
+                    }
+                    else{
+                        noteView.setText("메모 없음");
+                    }
+
                     eventDay.add(new EventDay(calendar,R.drawable.ic_message_black_48dp));
                     mCalendarView.setEvents(eventDay);
 
-//                    noteView.setText(getNote);
                 }
             }
 
