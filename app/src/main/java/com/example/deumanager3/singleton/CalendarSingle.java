@@ -8,6 +8,7 @@ public class CalendarSingle {
     private int month;
     private int day;
     private String type;
+    private String cAuthoruid;
 
     public CalendarSingle() {
 
@@ -38,16 +39,20 @@ public class CalendarSingle {
 
     public String getType() { return  this.type;}
 
-    public CalendarSingle( String note, int y, int m, int d, String type) {
+    public String getcAuthoruid() {return this.cAuthoruid; }
+
+    public CalendarSingle( String note, int y, int m, int d, String type, String uid) {
         this.note = note;
         this.year =y;
         this.month=m;
         this.day=d;
         this.type=type;
+        this.cAuthoruid = uid;
+
     }
 
-    public static CalendarSingle newCalendar( String note, int y, int m, int d, String type) {
-        return new CalendarSingle(note,y,m,d,type);
+    public static CalendarSingle newCalendar( String note, int y, int m, int d, String type, String uid) {
+        return new CalendarSingle(note,y,m,d,type,uid);
     }
 
 }
