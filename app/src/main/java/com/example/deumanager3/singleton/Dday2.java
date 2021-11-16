@@ -35,17 +35,17 @@ public class Dday2 {
         this.year2 = year2;
     }
 
-    public String getResult2() {
-        return result2;
-    }
+//    public String getResult2() {
+//        return result2;
+//    }
+//
+//    public void setResult2(String result2) { this.result2 = result2; }
 
-    public void setResult2(String result2) { this.result2 = result2; }
-
-    public Dday2(String result2, int year2, int monthOfYear2, int dayOfMonth2, String authorUid) {
+    public Dday2(int year2, int monthOfYear2, int dayOfMonth2, String authorUid) {
         this.day2 = dayOfMonth2;
         this.month2 = monthOfYear2+1;
         this.year2 = year2;
-        this.result2 = result2;
+//        this.result2 = result2;
         this.authorUid = User.getInstance().getUid();
     }
 }

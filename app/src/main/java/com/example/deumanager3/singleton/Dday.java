@@ -40,19 +40,19 @@ public class Dday {
         this.year = year;
     }
 
-    public String getResult() {
-        return result;
-    }
+//    public String getResult() {
+//        return result;
+//    }
+//
+//    public void setResult(String result) {
+//        this.result = result;
+//    }
 
-    public void setResult(String result) {
-        this.result = result;
-    }
-
-    public Dday(String result, int year, int monthOfYear, int dayOfMonth, String authorUid) {
+    public Dday(int year, int monthOfYear, int dayOfMonth, String authorUid) {
         this.day = dayOfMonth;
         this.month = monthOfYear+1;
         this.year = year;
-        this.result = result;
+//        this.result = result;
         this.authorUid = User.getInstance().getUid();
     }
 }

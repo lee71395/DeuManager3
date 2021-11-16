@@ -38,7 +38,7 @@ public class CalendarModel {
     }
     private CalendarActivity calendarActivity;
     private FirebaseUser user;
-
+    private String dPath;
 
     public CalendarModel(String postType) {
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -76,7 +76,8 @@ public class CalendarModel {
         }
 
     public void writeCalendar( String postType, int y, int m, int d, String note, String uid) {
-        databaseReference.child(postType).child(uid).push().setValue(CalendarSingle.newCalendar(note,y,m,d,postType,uid));
+        String dpath = String.valueOf(y) + String.valueOf(m) + String.valueOf(d);
+        databaseReference.child(postType).child(uid).child(dpath).setValue(CalendarSingle.newCalendar(note,y,m,d,postType,uid));
     }//등록
 
 }

@@ -2,20 +2,19 @@ package com.example.deumanager3;
 
 import static java.lang.String.valueOf;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.deumanager3.model.OnDataChangedListener;
-import com.example.deumanager3.singleton.Dday;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.applandeo.materialcalendarview.CalendarView;
@@ -33,15 +32,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
-
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Locale;
 
 public class CalendarActivity extends AppCompatActivity {
+    private static final String DIALOG_CALENDAR = "DialogCalendar";
     public static final String RESULT = "result";
     public static final String EVENT = "event";
     private static final int ADD_NOTE = 44;
@@ -65,6 +61,9 @@ public class CalendarActivity extends AppCompatActivity {
     private List<EventDay> eventDay = new ArrayList <>();
     private int get_Year = 0, get_Month = 0, get_Day = 0;
     String getNote = "";
+    private Button button;
+    private boolean calendarDelete = false;
+    private String dPath;
 
     public String getPostType() {
         return "캘린더";
@@ -75,21 +74,28 @@ public class CalendarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calender);
+        button = findViewById(R.id.button2);
         mCalendarView = (CalendarView) findViewById(R.id.calendarView);
         noteView = findViewById(R.id.noteView);
+        readCalendar();
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DeleteClass();
+            }
+        });
 //        Calendar calendar1 = Calendar.getInstance();
 //        calendar1.getTime();
 //
 //        eventDay.add(new EventDay(calendar1,R.drawable.ic_message_black_48dp));
 //        mCalendarView.setDate(calendar1);
 //        mCalendarView.setEvents(eventDay);
-        readCalendar();
+
 
 //        readCalendar();
 
 //        calendarModel.addCalendarModel(calendarSingle);
         this.mSchedules = scheduleModel.getSchedules();
-
         this.gCalendarSingles = calendarModel.getmCalendars();
         Log.i("g Cal 가져옴",valueOf(gCalendarSingles.size()));
 //        for(int i = 0; i< gCalendarSingles.size(); i++) {
@@ -101,14 +107,12 @@ public class CalendarActivity extends AppCompatActivity {
 //            mCalendarView.setEvents(gEventDats);
 //
 //        }
+
         mCalendarView.setOnDayClickListener(new OnDayClickListener() {
             @Override
             public void onDayClick(EventDay eventDay) {
-
-                //      previewNote(eventDay);
-                //      UpdateNote();
                 readCalendar();
-                // setTextPreview(eventDay);
+
             }
         });
         // textView = findViewById(R.id.preview_note);
@@ -200,8 +204,8 @@ public class CalendarActivity extends AppCompatActivity {
                     }
                     else{
                         noteView.setText("메모 없음");
-                    }
 
+                    }
                     eventDay.add(new EventDay(calendar,R.drawable.ic_message_black_48dp));
                     mCalendarView.setEvents(eventDay);
 
@@ -215,7 +219,31 @@ public class CalendarActivity extends AppCompatActivity {
         });
 
     }
-
+    public void DeleteClass() {
+        FragmentManager manager = getSupportFragmentManager();
+        CalendarDeleteDialogFragment deleteDialogFragment = new CalendarDeleteDialogFragment();
+        deleteDialogFragment.show(manager, DIALOG_CALENDAR);
+        deleteDialogFragment.setDeleteDialogResult(new CalendarDeleteDialogFragment.OnMyDeleteDialogResult() {
+            @Override
+            public void delete(boolean result) {
+                calendarDelete = result;
+                if(calendarDelete){
+                        Calendar calendar = Calendar.getInstance();
+                        calendar.set(mCalendarView.getSelectedDate().getWeekYear(),mCalendarView.getSelectedDate().getTime().getMonth()+1,
+                                mCalendarView.getSelectedDate().getTime().getDate());
+                        dPath = String.valueOf(mCalendarView.getSelectedDate().getWeekYear()) + String.valueOf(mCalendarView.getSelectedDate().getTime().getMonth()+1)
+                                + String.valueOf(mCalendarView.getSelectedDate().getTime().getDate());
+                        databaseReference.child("캘린더").child(user.getUid()).child(dPath).setValue(null);
+                        noteView.setText("메모 없음");
+                        finish();//인텐트 종료
+                        overridePendingTransition(0, 0);//인텐트 효과 없애기
+                        Intent intent = getIntent(); //인텐트
+                        startActivity(intent); //액티비티 열기
+                        overridePendingTransition(0, 0);//인텐트 효과 없애기
+                }
+            }
+        });
+    }
 
     private void showProgressDialog() {
         progressDialog = new ProgressDialog(this);

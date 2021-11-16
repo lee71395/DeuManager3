@@ -106,14 +106,6 @@ public class HomeFragment extends ToolBarFragment {
         readDDay();
         readDDay2();
         loadschedule();
-        //bus = view.findViewById(R.id.bus);
-        //homepage = view.findViewById(R.id.homepage);
-
-
-//        user.getInstance().setUserName(userf.getDisplayName());
-        //   user.getInstance().setEmail(userf.getEmail());
-        //   tname.setText(user.getUserName());
-        //    email.setText(user.getEmail());
         phone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -132,23 +124,6 @@ public class HomeFragment extends ToolBarFragment {
             }
         });
 
-//        bus.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.ajou.ac.kr/kr/life/bus01.jsp"));
-//                intent.setPackage("com.android.chrome");
-//                startActivity(intent);
-//            }
-//        });
-
-//        homepage.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://eclass2.ajou.ac.kr/"));
-//                intent.setPackage("com.android.chrome");
-//                startActivity(intent);
-//            }
-//        });
         tname=view.findViewById(R.id.name);
         email=view.findViewById(R.id.email);
         ddayText=view.findViewById(R.id.dday);
@@ -214,27 +189,27 @@ public class HomeFragment extends ToolBarFragment {
     private void updateDisplay() {
 
         todayText.setText(String.format("%d년 %d월 %d일",tYear, tMonth + 1,tDay));
-        if(check==1) {
-            ddayText.setText(String.format("%d년 %d월 %d일",dYear, dMonth + 1,dDay));
-
-            if(resultNumber>=0){
-                resultText.setText(String.format("D-%d", resultNumber));
-            }
-            else{
-                int absR=Math.abs(resultNumber);
-                resultText.setText(String.format("D+%d", absR));
-            }
-        }
-        else if(check==2) {
-            ddayText2.setText(String.format("%d년 %d월 %d일", dYear2, dMonth2 + 1, dDay2));
-
-            if (resultNumber >= 0) {
-                resultText2.setText(String.format("D-%d", resultNumber));
-            } else {
-                int absR = Math.abs(resultNumber);
-                resultText2.setText(String.format("D+%d", absR));
-            }
-        }
+//        if(check==1) {
+//            ddayText.setText(String.format("%d년 %d월 %d일",dYear, dMonth + 1,dDay));
+//
+//            if(resultNumber>=0){
+//                resultText.setText(String.format("D-%d", resultNumber));
+//            }
+//            else{
+//                int absR=Math.abs(resultNumber);
+//                resultText.setText(String.format("D+%d", absR));
+//            }
+//        }
+//        else if(check==2) {
+//            ddayText2.setText(String.format("%d년 %d월 %d일", dYear2, dMonth2 + 1, dDay2));
+//
+//            if (resultNumber >= 0) {
+//                resultText2.setText(String.format("D-%d", resultNumber));
+//            } else {
+//                int absR = Math.abs(resultNumber);
+//                resultText2.setText(String.format("D+%d", absR));
+//            }
+//        }
     }//디데이 날짜가 오늘날짜보다 뒤에오면 '-', 앞에오면 '+'를 붙인다
 
     private DatePickerDialog.OnDateSetListener dDateSetListener=new DatePickerDialog.OnDateSetListener() {
@@ -253,7 +228,7 @@ public class HomeFragment extends ToolBarFragment {
 
                 d = dCalendar.getTimeInMillis();
                 r = (d - t) / (24 * 60 * 60 * 1000);
-                writeNewUser(String.valueOf(r), dYear, dMonth, dDay, dAuthorUid);
+                writeNewUser(dYear, dMonth, dDay, dAuthorUid);
                 resultNumber = (int) r;
                 updateDisplay();
 
@@ -270,15 +245,15 @@ public class HomeFragment extends ToolBarFragment {
 
                 d = dCalendar.getTimeInMillis();
                 r = (d - t) / (24 * 60 * 60 * 1000);
-                writeNewUser2(String.valueOf(r), dYear2, dMonth2, dDay2, dAuthorUid);
+                writeNewUser2(dYear2, dMonth2, dDay2, dAuthorUid);
                 resultNumber = (int) r;
                 updateDisplay();
 
             }
         }
-        private void writeNewUser(String result, int year, int month, int day, String authorUid) {
+        private void writeNewUser(int year, int month, int day, String authorUid) {
             if (check == 1) {
-                Dday dday = new Dday(result, year, month, day, authorUid);
+                Dday dday = new Dday(year, month, day, authorUid);
 
                 mDatabaseRef.child("Dday").child(authorUid).setValue(dday)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -290,9 +265,9 @@ public class HomeFragment extends ToolBarFragment {
             }
 
         }
-        private void writeNewUser2 (String result2,int year2, int month2, int day2, String authorUid) {
+        private void writeNewUser2 (int year2, int month2, int day2, String authorUid) {
             if (check == 2) {
-                Dday dday = new Dday(result2, year2, month2, day2, authorUid);
+                Dday dday = new Dday(year2, month2, day2, authorUid);
 
                 mDatabaseRef.child("Dday2").child(authorUid).setValue(dday)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -316,10 +291,25 @@ public class HomeFragment extends ToolBarFragment {
                     int Year = dday.getYear();
                     int Month = dday.getMonth();
                     int Day = dday.getDay();
-                    String Result = dday.getResult();
 
                     ddayText.setText(String.format("%d년 %d월 %d일", Year, Month, Day));
-                    resultText.setText(String.format("D-%s",Result));
+                    Calendar calendar = Calendar.getInstance();
+                    Calendar dCalendar = Calendar.getInstance();
+                    calendar.set(tYear,tMonth+1,tDay);
+                    dCalendar.set(Year,Month,Day);
+                    long t = calendar.getTimeInMillis();
+                    long d = dCalendar.getTimeInMillis();
+                    long r = (d - t) / (24 * 60 * 60 * 1000);
+                    int resultNumber = (int) r;
+                    if(resultNumber > 0){
+                        resultText.setText(String.format("D-%d",resultNumber));
+                    }else if(resultNumber == 0) {
+                        resultText.setText("D-day");
+                    }
+                    else {
+                        int absR=Math.abs(resultNumber); // 절대값 반환
+                        resultText.setText(String.format("D+%d",absR));
+                    }
                 }
             }
 
@@ -342,10 +332,26 @@ public class HomeFragment extends ToolBarFragment {
                     int Year = dday.getYear();
                     int Month = dday.getMonth();
                     int Day = dday.getDay();
-                    String Result = dday.getResult();
+//                    String Result = dday.getResult();
 
                     ddayText2.setText(String.format("%d년 %d월 %d일", Year, Month, Day));
-                    resultText2.setText(String.format("D-%s",Result));
+                    Calendar calendar = Calendar.getInstance();
+                    Calendar dCalendar = Calendar.getInstance();
+                    calendar.set(tYear,tMonth+1,tDay);
+                    dCalendar.set(Year,Month,Day);
+                    long t = calendar.getTimeInMillis();
+                    long d = dCalendar.getTimeInMillis();
+                    long r = (d - t) / (24 * 60 * 60 * 1000);
+                    int resultNumber = (int) r;
+                    if(resultNumber > 0){
+                        resultText2.setText(String.format("D-%d",resultNumber));
+                    }else if (resultNumber == 0) {
+                        resultText2.setText("D-Day");
+                    }
+                    else {
+                        int absR=Math.abs(resultNumber); // 절대값 반환
+                        resultText2.setText(String.format("D+%d",absR));
+                    }
                 }
             }
 

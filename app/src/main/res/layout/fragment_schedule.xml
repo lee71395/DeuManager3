@@ -166,7 +166,9 @@
             </TableRow>
 
 
-            <TableRow android:layout_weight="1">
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/monday1"
@@ -225,7 +227,9 @@
             </TableRow>
 
 
-            <TableRow android:layout_weight="1">
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/monday2"
@@ -285,7 +289,9 @@
             </TableRow>
 
 
-            <TableRow android:layout_weight="1">
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/monday3"
@@ -346,7 +352,9 @@
             </TableRow>
 
 
-            <TableRow android:layout_weight="1">
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/monday4"
@@ -407,7 +415,9 @@
             </TableRow>
 
 
-            <TableRow android:layout_weight="1">
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/monday5"
@@ -467,7 +477,9 @@
             </TableRow>
 
 
-            <TableRow android:layout_weight="1">
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/monday6"
@@ -527,7 +539,9 @@
             </TableRow>
 
 
-            <TableRow android:layout_weight="1">
+            <TableRow
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/monday7"
@@ -587,7 +601,9 @@
             </TableRow>
 
 
-            <TableRow android:layout_weight="1">
+            <TableRow
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/monday8"
