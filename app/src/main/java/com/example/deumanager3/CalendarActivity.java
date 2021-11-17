@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.applandeo.materialcalendarview.CalendarView;
 import com.applandeo.materialcalendarview.EventDay;
@@ -81,9 +82,14 @@ public class CalendarActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DeleteClass();
+                if(noteView.getText().equals("메모 없음")){
+                    Toast.makeText(getApplicationContext(),"일정이 없습니다.",Toast.LENGTH_SHORT).show();
+                }else {
+                    DeleteClass();
+                }
             }
         });
+
 //        Calendar calendar1 = Calendar.getInstance();
 //        calendar1.getTime();
 //
@@ -112,7 +118,6 @@ public class CalendarActivity extends AppCompatActivity {
             @Override
             public void onDayClick(EventDay eventDay) {
                 readCalendar();
-
             }
         });
         // textView = findViewById(R.id.preview_note);
