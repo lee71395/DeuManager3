@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Manager</string>
+    <string name="app_name">DeuManager</string>
     <string name="kakao_app_key"> d431787254da09e70ca814b1b5fd1139 </string>
     <string name="title_home">홈</string>
     <string name="title_board">게시판</string>

@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 //        sHomeFragment.setName(GoogleLoginActivity.getN());//없음
 //        Log.i("이름",user.getUserName());;//없음
         replaceFragment(sHomeFragment);
-        toolbarText.setText("HOME");
+        toolbarText.setText("홈");
         BottomNavigationView bottomNavigationView = findViewById(R.id.main_bnv);
 
         BottomNavigationViewHelper.removeShiftMode(bottomNavigationView);
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.action_one://홈
                         replaceFragment(sHomeFragment);
-                        toolbarText.setText("HOME");
+                        toolbarText.setText("홈");
                         return true;
                     case R.id.action_two://시간표
                         Intent scheduleIntent = new Intent (MainActivity.this, ScheduleActivity.class);
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     case R.id.action_four://공지
                         replaceFragment(sNoticeFragment);
-                        toolbarText.setText("NOTICE");
+                        toolbarText.setText("공지사항");
                         return true;
                     case R.id.action_five://게시판
                         Intent boardIntent = new Intent(MainActivity.this, BoardActivity.class);

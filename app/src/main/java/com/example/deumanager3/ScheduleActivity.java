@@ -43,7 +43,7 @@ public class ScheduleActivity extends AppCompatActivity {
         actionBar = getSupportActionBar();
         actionBar.setDisplayShowCustomEnabled(true); //커스터마이징 하기 위해 필요
         actionBar.setDisplayShowTitleEnabled(false);
-        toolbarText.setText("SCHEDULE");
+        toolbarText.setText("시간표");
         FragmentManager fm = getSupportFragmentManager();
 
         fm.beginTransaction().add(R.id.fragment_schedule, new ScheduleFragment()).commit();

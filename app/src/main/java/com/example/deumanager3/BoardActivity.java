@@ -26,7 +26,7 @@ public class BoardActivity extends AppCompatActivity {
         actionBar = getSupportActionBar();
         actionBar.setDisplayShowCustomEnabled(true); //커스터마이징 하기 위해 필요
         actionBar.setDisplayShowTitleEnabled(false);
-        toolbarText.setText("NOTICE BOARD");
+        toolbarText.setText("게시판");
         FragmentManager fm = getSupportFragmentManager();
 
         fm.beginTransaction().add(R.id.fragment_board_container, new BoardTabFragment()).commit();

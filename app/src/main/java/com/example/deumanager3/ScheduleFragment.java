@@ -64,15 +64,6 @@ public class ScheduleFragment extends ToolBarFragment {
     private FragmentManager fragmentManager;
     private String sDay[] = {"월요일","화요일","수요일","목요일","금요일"};
 
-
-
-//
-//    @NonNull
-//    public static ScheduleFragment newInstance() {
-//        return sFragment;
-//    }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
@@ -124,75 +115,65 @@ public class ScheduleFragment extends ToolBarFragment {
         friday[7] = view.findViewById(R.id.friday8);
 
         UpdateSchedule();
-//        monday[0].setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                FragmentManager manager = getFragmentManager();
-//                ScheduleDeleteDialogFragment deleteDialogFragment = new ScheduleDeleteDialogFragment();
-//                deleteDialogFragment.show(manager, DIALOG_SCHEDULE);
-//                deleteDialogFragment.setDeleteDialogResult(new ScheduleDeleteDialogFragment.OnMyDeleteDialogResult() {
-//                    @Override
-//                    public void delete(boolean result) {
-//                        scheduleDelete = result;
-//                        if(scheduleDelete){
-//                            databaseReference.child("시간표").child(sAuthorUid).child("월요일").child("1").setValue(null);
-//                            UpdateSchedule();
-//                        }
-//                    }
-//                });
-//
-//            }
-//        });
+
         for ( int i = 0 ; i < 8 ; i++) {
             int sTime = i + 1;
+            int j = i;
             monday[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    DeleteClass(view, sDay[0], sTime);
+                    if(monday[j].getText().equals("")){
+                        Toast.makeText(getActivity(),"강의가 없습니다.",Toast.LENGTH_SHORT).show();
+                    }else{
+                        DeleteClass(view, sDay[0], sTime);
+                    }
                 }
             });
             tuesday[i].setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View view) { DeleteClass(view, sDay[1], sTime); }
+                public void onClick(View view) {
+                    if(tuesday[j].getText().equals("")){
+                        Toast.makeText(getActivity(),"강의가 없습니다.",Toast.LENGTH_SHORT).show();
+                    }else{
+                        DeleteClass(view, sDay[1], sTime);
+                    }
+
+                }
             });
             wednesday[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    DeleteClass(view, sDay[2], sTime);
+                    if(wednesday[j].getText().equals("")){
+                        Toast.makeText(getActivity(),"강의가 없습니다.",Toast.LENGTH_SHORT).show();
+                    }else{
+                        DeleteClass(view, sDay[2], sTime);
+                    }
+
                 }
             });
             thursday[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    DeleteClass(view, sDay[3], sTime);
+                    if(thursday[j].getText().equals("")){
+                        Toast.makeText(getActivity(),"강의가 없습니다.",Toast.LENGTH_SHORT).show();
+                    }else{
+                        DeleteClass(view, sDay[3], sTime);
+                    }
+
                 }
             });
             friday[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    DeleteClass(view, sDay[4], sTime);
+                    if(friday[j].getText().equals("")){
+                        Toast.makeText(getActivity(),"강의가 없습니다.",Toast.LENGTH_SHORT).show();
+                    }else{
+                        DeleteClass(view, sDay[4], sTime);
+                    }
+
                 }
             });
         }
-
-//        StartCreateView();
-
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentManager manager = getFragmentManager();
-                ScheduleDialogFragment dialogFragment = new ScheduleDialogFragment();
-                dialogFragment.show(manager, DIALOG_SCHEDULE);
-                dialogFragment.setDialogResult(new ScheduleDialogFragment.OnMyDialogResult() {
-                    @Override
-                    public void finish(Object result) {
-                        schedule = (Schedule) result;
-                        scheduleModel.writeSchedule(schedule.getClassName(), schedule.getClassRoom(), schedule.getClassDay(), schedule.getClassTime(),sAuthorUid);
-                        createView(schedule.getClassName(), schedule.getClassRoom(), schedule.getClassDay(), schedule.getClassTime());
-                    }
-                });
-            }
-        });
 
         return view;
     }
@@ -313,154 +294,6 @@ public class ScheduleFragment extends ToolBarFragment {
         });
     }
 
-    public void createView(String name, String room, String day, String time) {
-        String r = " (" + room + ") ";
-        String text = name + "\n" + r;
-        if (day == "월요일") {
-            if (time.equals("1")) {
-                monday[0].setText(text);
-                monday[0].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("2")) {
-                monday[1].setText(text);
-                monday[1].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("3")) {
-                Toast.makeText(getActivity(), name + " (" + room + ") ", Toast.LENGTH_SHORT).show();
-                monday[2].setText(text);
-                monday[2].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
 
-            } else if (time.equals("4")) {
-                monday[3].setText(text);
-
-                monday[3].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("5")) {
-                monday[4].setText(text);
-
-                monday[4].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-
-            } else if (time.equals("6")) {
-                monday[5].setText(text);
-
-                monday[5].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-
-            } else if (time.equals("7")) {
-                monday[6].setText(text);
-
-                monday[6].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-
-            } else if (time.equals("8")) {
-                monday[7].setText(text);
-
-                monday[7].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            }
-
-        } else if (day == "화요일") {
-            if (time.equals("1")) {
-                tuesday[0].setText(text);
-                tuesday[0].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-
-            } else if (time.equals("2")) {
-                tuesday[1].setText(text);
-                tuesday[1].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-
-            } else if (time.equals("3")) {
-                tuesday[2].setText(text);
-                tuesday[2].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("4")) {
-                tuesday[3].setText(text);
-                tuesday[3].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("5")) {
-                tuesday[4].setText(text);
-                tuesday[4].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("6")) {
-                tuesday[5].setText(text);
-                tuesday[5].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("7")) {
-                tuesday[6].setText(text);
-                tuesday[6].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("8")) {
-                tuesday[7].setText(text);
-                tuesday[7].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            }
-        } else if (day == "수요일") {
-            if (time.equals("1")) {
-                wednesday[0].setText(text);
-                wednesday[0].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("2")) {
-                wednesday[1].setText(text);
-                wednesday[1].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("3")) {
-                wednesday[2].setText(text);
-                wednesday[2].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("4")) {
-                wednesday[3].setText(text);
-                wednesday[3].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("5")) {
-                wednesday[4].setText(text);
-                wednesday[4].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("6")) {
-                wednesday[5].setText(text);
-                wednesday[5].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("7")) {
-                wednesday[6].setText(text);
-                wednesday[6].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("8")) {
-                wednesday[7].setText(text);
-                wednesday[7].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            }
-        } else if (day == "목요일") {
-            if (time.equals("1")) {
-                thursday[0].setText(text);
-                thursday[0].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("2")) {
-                thursday[1].setText(text);
-                thursday[1].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("3")) {
-                thursday[2].setText(text);
-                thursday[2].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("4")) {
-                thursday[3].setText(text);
-                thursday[3].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("5")) {
-                thursday[4].setText(text);
-                thursday[4].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("6")) {
-                thursday[5].setText(text);
-                thursday[5].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("7")) {
-                thursday[6].setText(text);
-                thursday[6].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("8")) {
-                thursday[7].setText(text);
-                thursday[7].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            }
-        } else if (day == "금요일") {
-            if (time.equals("1")) {
-                friday[0].setText(text);
-                friday[0].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("2")) {
-                friday[1].setText(text);
-                friday[1].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("3")) {
-                friday[2].setText(text);
-                friday[2].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("4")) {
-                friday[3].setText(text);
-                friday[3].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("5")) {
-                friday[4].setText(text);
-                friday[4].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("6")) {
-                friday[5].setText(text);
-                friday[5].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("7")) {
-                friday[6].setText(text);
-                friday[6].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            } else if (time.equals("8")) {
-                friday[7].setText(text);
-                friday[7].setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.cell_shape_update));
-            }
-        }
-
-    }
 
 }

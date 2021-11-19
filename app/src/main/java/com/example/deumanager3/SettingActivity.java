@@ -5,14 +5,21 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SettingActivity extends AppCompatActivity {
+    private GoogleApiClient mGoogleApiClient;
+    private FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -67,15 +74,5 @@ public class SettingActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onOptionsItemSelected( MenuItem item ) {
-        switch (item.getItemId()){
-            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
-                this.finish();
-                return true;
-            }
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
 }

@@ -79,17 +79,8 @@ public class CalendarActivity extends AppCompatActivity {
         mCalendarView = (CalendarView) findViewById(R.id.calendarView);
         noteView = findViewById(R.id.noteView);
         readCalendar();
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(noteView.getText().equals("메모 없음")){
-                    Toast.makeText(getApplicationContext(),"일정이 없습니다.",Toast.LENGTH_SHORT).show();
-                }else {
-                    DeleteClass();
-                }
-            }
-        });
 
+//        readCalendar();
 //        Calendar calendar1 = Calendar.getInstance();
 //        calendar1.getTime();
 //
@@ -118,6 +109,16 @@ public class CalendarActivity extends AppCompatActivity {
             @Override
             public void onDayClick(EventDay eventDay) {
                 readCalendar();
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if(noteView.getText().equals("메모 없음")){
+                            Toast.makeText(getApplicationContext(),"일정이 없습니다.",Toast.LENGTH_SHORT).show();
+                        }else {
+                            DeleteCalendar();
+                        }
+                    }
+                });
             }
         });
         // textView = findViewById(R.id.preview_note);
@@ -200,7 +201,22 @@ public class CalendarActivity extends AppCompatActivity {
                     getNote = ds.getValue(CalendarSingle.class).getNote();
                     //            Log.i("노트 가져옴", valueOf(getNote));
                     Calendar calendar = Calendar.getInstance();
+                    calendar.set(get_Year, get_Month - 1, get_Day);
+                    eventDay.add(new EventDay(calendar, R.drawable.ic_message_black_48dp));
+                    mCalendarView.setEvents(eventDay);
+                }
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    get_Year = ds.getValue(CalendarSingle.class).getYear();
+                    //            Log.i("연도 가져옴", valueOf(get_Year));
+                    get_Month = ds.getValue(CalendarSingle.class).getMonth();
+                    //            Log.i("월 가져옴", valueOf(get_Month));
+                    get_Day = ds.getValue(CalendarSingle.class).getDay();
+                    //            Log.i("일 가져옴", valueOf(get_Day));
+                    getNote = ds.getValue(CalendarSingle.class).getNote();
+                    //            Log.i("노트 가져옴", valueOf(getNote));
+                    Calendar calendar = Calendar.getInstance();
                     calendar.set(get_Year,get_Month-1,get_Day);
+
 
                     if(mCalendarView.getSelectedDate().getWeekYear() == get_Year && mCalendarView.getSelectedDate().getTime().getMonth()+1 == get_Month &&
                             mCalendarView.getSelectedDate().getTime().getDate() == get_Day){
@@ -209,11 +225,7 @@ public class CalendarActivity extends AppCompatActivity {
                     }
                     else{
                         noteView.setText("메모 없음");
-
                     }
-                    eventDay.add(new EventDay(calendar,R.drawable.ic_message_black_48dp));
-                    mCalendarView.setEvents(eventDay);
-
                 }
             }
 
@@ -222,9 +234,8 @@ public class CalendarActivity extends AppCompatActivity {
 
             }
         });
-
     }
-    public void DeleteClass() {
+    public void DeleteCalendar() {
         FragmentManager manager = getSupportFragmentManager();
         CalendarDeleteDialogFragment deleteDialogFragment = new CalendarDeleteDialogFragment();
         deleteDialogFragment.show(manager, DIALOG_CALENDAR);

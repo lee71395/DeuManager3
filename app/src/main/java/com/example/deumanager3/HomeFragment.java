@@ -4,10 +4,10 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentManager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,9 +18,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.applandeo.materialcalendarview.EventDay;
 import com.example.deumanager3.model.OnDataChangedListener;
 import com.example.deumanager3.singleton.CalendarSingle;
 import com.example.deumanager3.singleton.Dday;
@@ -29,14 +27,12 @@ import com.example.deumanager3.singleton.User;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.net.HttpCookie;
 import java.util.Calendar;
 import java.util.List;
 
@@ -47,6 +43,7 @@ public class HomeFragment extends ToolBarFragment {
 //    public static HomeFragment newInstance() {
 //        return new HomeFragment();
 //    }
+    private static final String DIALOG_DDAY = "DialogDday";
     private FirebaseAuth mFirebaseAuth;
     private DatabaseReference mDatabaseRef;
     private FirebaseDatabase database;
@@ -57,21 +54,30 @@ public class HomeFragment extends ToolBarFragment {
     private ImageView map;
     private ImageView bus;
     private ImageView homepage;
+    private ImageView book;
+    private ImageView heart;
+    private boolean DdayDelete = false;
+    private static final int ADD_NOTE = 44;
     private OnDataChangedListener onDataChangedListener;
 
+    private TextView tclass[] = new TextView[8];
     private TextView ddayText;
     private TextView todayText;
     private TextView resultText;
-    private Button dateButton;
+    private Button resetButton;
     private TextView ddayText2;
     private TextView resultText2;
-    private Button dateButton2;
+    private Button resetButton2;
+    private Button addTextBtn;
     private int check=0;
 
     private int tYear;           //오늘 연월일 변수
     private int tMonth;
     private int tDay;
-
+    private int tDoW;
+    private String [] dayArray = {"일", "화", "수", "목", "금", "토", "일"};
+    private String [] dAry = {"월요일", "화요일", "수요일", "목요일", "금요일"};
+    private String DayoW;
     private int dYear=1;        //디데이 연월일 변수
     private int dMonth=1;
     private int dDay=1;
@@ -85,7 +91,7 @@ public class HomeFragment extends ToolBarFragment {
     private long d;
     private long t;
     private long r;
-
+    private int n;
     private int resultNumber=0;
 
     static final int DATE_DIALOG_ID=0;
@@ -101,44 +107,60 @@ public class HomeFragment extends ToolBarFragment {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         setToolbar();
-        phone = view.findViewById(R.id.phone);
-        map = view.findViewById(R.id.map);
+//        phone = view.findViewById(R.id.phone);
+//        map = view.findViewById(R.id.map);
+        book = view.findViewById(R.id.book);
+        heart = view.findViewById(R.id.heart);
         readDDay();
         readDDay2();
         loadschedule();
-        phone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.deu.ac.kr/www/tel/21"));
-                intent.setPackage("com.android.chrome");
-                startActivity(intent);
-            }
-        });
-
-        map.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.deu.ac.kr/www/content/14"));
-                intent.setPackage("com.android.chrome");
-                startActivity(intent);
-            }
-        });
+//        phone.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.deu.ac.kr/www/tel/21"));
+//                intent.setPackage("com.android.chrome");
+//                startActivity(intent);
+//            }
+//        });
+//
+//        map.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.deu.ac.kr/www/content/14"));
+//                intent.setPackage("com.android.chrome");
+//                startActivity(intent);
+//            }
+//        });
 
         tname=view.findViewById(R.id.name);
         email=view.findViewById(R.id.email);
         ddayText=view.findViewById(R.id.dday);
         todayText=view.findViewById(R.id.today);
         resultText=view.findViewById(R.id.result);
-        dateButton=view.findViewById(R.id.dateButton);
+        resetButton=view.findViewById(R.id.resetButton);
         tname.setText(user.getDisplayName());
         email.setText(user.getEmail());
         ddayText2 = view.findViewById(R.id.dday2);
         resultText2 = view.findViewById(R.id.result2);
-        dateButton2 = view.findViewById(R.id.dateButton2);
+        resetButton2 = view.findViewById(R.id.resetButton2);
         todayschedule = view.findViewById(R.id.todaytext);
 
+        tclass[0] = view.findViewById(R.id.tclass1);
+        tclass[1] = view.findViewById(R.id.tclass2);
+        tclass[2] = view.findViewById(R.id.tclass3);
+        tclass[3] = view.findViewById(R.id.tclass4);
+        tclass[4] = view.findViewById(R.id.tclass5);
+        tclass[5] = view.findViewById(R.id.tclass6);
+        tclass[6] = view.findViewById(R.id.tclass7);
+        tclass[7] = view.findViewById(R.id.tclass8);
 
-        dateButton.setOnClickListener(new View.OnClickListener() {
+//        addTextBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                todayText.setText();
+//            }
+//        });
+        book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick( View v ) {
                 // TODO Auto-generated method stub
@@ -148,7 +170,7 @@ public class HomeFragment extends ToolBarFragment {
             }
         });
 
-        dateButton2.setOnClickListener(new View.OnClickListener() {
+        heart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick( View v ) {
                 // TODO Auto-generated method stub
@@ -157,13 +179,27 @@ public class HomeFragment extends ToolBarFragment {
                 check=2;
             }
         });
+        resetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ResetDday1();
+            }
+        });
+        resetButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ResetDday2();
+            }
+        });
         Calendar calendar = Calendar.getInstance();              //현재 날짜 불러옴
         tYear = calendar.get(Calendar.YEAR);
         tMonth = calendar.get(Calendar.MONTH);
         tDay = calendar.get(Calendar.DAY_OF_MONTH);
-
+        tDoW = calendar.get(Calendar.DAY_OF_WEEK) - 1; //배열과 맞추기 위해 -1
         Calendar dCalendar = Calendar.getInstance();
         dCalendar.set(dYear, dMonth, dDay);
+        n = (tDoW % 7) - 1;                            //배열과 맞추기 위해 -1
+        DayoW = dayArray[n];
 
         t = calendar.getTimeInMillis();                 //오늘 날짜를 밀리타임으로 바꿈
         d = dCalendar.getTimeInMillis();              //디데이날짜를 밀리타임으로 바꿈
@@ -186,9 +222,44 @@ public class HomeFragment extends ToolBarFragment {
         return super.onOptionsItemSelected(item);
     }
 
+
+
+    public void TodaySchedule(){
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference();
+        int cnt = 0, chk;
+        if(n < 5){
+            for(int i = 1; i <= 8; i++) {
+                int j = i - 1;
+
+                String istring = Integer.toString(i);
+                mDatabaseRef.child("시간표").child(user.getUid()).child(dAry[n]).child(istring).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Schedule schedule1 = snapshot.getValue(Schedule.class);
+                        if(snapshot.getValue() == null){
+                            tclass[j].setText(String.format("%s교시 공강", istring.toString()));
+                        }
+                        else {
+                            String className = schedule1.getClassName();
+                            String classRoom = schedule1.getClassRoom();
+                            tclass[j].setText(String.format("%s교시 %s %s호",istring.toString(), className,classRoom));
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Log.e("TodaySchedule", String.valueOf(error.toException())); // 에러문 출력
+                    }
+                });
+            }
+        }
+    }
     private void updateDisplay() {
 
-        todayText.setText(String.format("%d년 %d월 %d일",tYear, tMonth + 1,tDay));
+        todayText.setText(String.format("%d년 %d월 %d일 %s요일",tYear, tMonth + 1,tDay, DayoW));
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference();
+        TodaySchedule();
+
 //        if(check==1) {
 //            ddayText.setText(String.format("%d년 %d월 %d일",dYear, dMonth + 1,dDay));
 //
@@ -279,6 +350,40 @@ public class HomeFragment extends ToolBarFragment {
             }
         }
     };
+    public void ResetDday1() {
+//        mDatabaseRef = FirebaseDatabase.getInstance().getReference();
+        FragmentManager manager = getFragmentManager();
+        DdayDeleteDialogFragment deleteDialogFragment = new DdayDeleteDialogFragment();
+        deleteDialogFragment.show(manager, DIALOG_DDAY);
+        deleteDialogFragment.setDeleteDialogResult(new DdayDeleteDialogFragment.OnMyDeleteDialogResult() {
+            @Override
+            public void delete(boolean result) {
+                DdayDelete = result;
+                if(DdayDelete){
+                    mDatabaseRef.child("Dday").child(user.getUid()).setValue(null);
+                    ddayText.setText("날짜를 입력하세요");
+                    resultText.setText("D-Day");
+                }
+            }
+        });
+    }
+    public void ResetDday2() {
+//        mDatabaseRef = FirebaseDatabase.getInstance().getReference();
+        FragmentManager manager = getFragmentManager();
+        DdayDeleteDialogFragment deleteDialogFragment = new DdayDeleteDialogFragment();
+        deleteDialogFragment.show(manager, DIALOG_DDAY);
+        deleteDialogFragment.setDeleteDialogResult(new DdayDeleteDialogFragment.OnMyDeleteDialogResult() {
+            @Override
+            public void delete(boolean result) {
+                DdayDelete = result;
+                if(DdayDelete){
+                    mDatabaseRef.child("Dday2").child(user.getUid()).setValue(null);
+                    ddayText2.setText("날짜를 입력하세요");
+                    resultText2.setText("D-Day");
+                }
+            }
+        });
+    }
     private void readDDay() {
         mDatabaseRef = FirebaseDatabase.getInstance().getReference();
         mDatabaseRef.child("Dday").child(user.getUid()).addValueEventListener(new ValueEventListener() {
@@ -366,7 +471,6 @@ public class HomeFragment extends ToolBarFragment {
         mDatabaseRef = FirebaseDatabase.getInstance().getReference();
         mDatabaseRef.child("캘린더").child(user.getUid()).addValueEventListener(new ValueEventListener() {
             private List<CalendarSingle> gCalendarSingles;
-
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (onDataChangedListener != null) {
@@ -374,26 +478,19 @@ public class HomeFragment extends ToolBarFragment {
                 }
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     int get_Year = ds.getValue(CalendarSingle.class).getYear();
-                    //            Log.i("연도 가져옴", valueOf(get_Year));
                     int get_Month = ds.getValue(CalendarSingle.class).getMonth();
-                    //            Log.i("월 가져옴", valueOf(get_Month));
                     int get_Day = ds.getValue(CalendarSingle.class).getDay();
-                    //            Log.i("일 가져옴", valueOf(get_Day));
                     String getNote = ds.getValue(CalendarSingle.class).getNote();
-                    //            Log.i("노트 가져옴", valueOf(getNote));
-
                     if(tYear == get_Year && tMonth + 1 == get_Month &&
                             tDay == get_Day){
                         todayschedule.setText(getNote);
                         break;
                     }
                     else{
-                        todayschedule.setText("메모 없음");
+                        todayschedule.setText("");
                     }
-
                 }
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
 

@@ -65,6 +65,23 @@ public class NoticeFragment extends com.example.deumanager3.ToolBarFragment {
                 startActivity(intent);
             }
         });
+        //        phone.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.deu.ac.kr/www/tel/21"));
+//                intent.setPackage("com.android.chrome");
+//                startActivity(intent);
+//            }
+//        });
+//
+//        map.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.deu.ac.kr/www/content/14"));
+//                intent.setPackage("com.android.chrome");
+//                startActivity(intent);
+//            }
+//        });
 
         return view;
     }
