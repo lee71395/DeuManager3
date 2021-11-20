@@ -46,7 +46,6 @@ public class GoogleLoginActivity extends AppCompatActivity
     public String gname;
     public String gemail;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,14 +64,8 @@ public class GoogleLoginActivity extends AppCompatActivity
         });
 
         setGoogleApiClient();
-
         new mTask().execute();
-
-
     }
-
-
-
 
     private void setGoogleApiClient() {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)

@@ -42,7 +42,6 @@ public class CalendarModel {
 
     public CalendarModel(String postType) {
         databaseReference = FirebaseDatabase.getInstance().getReference();
-
         databaseReference.child("캘린더").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
