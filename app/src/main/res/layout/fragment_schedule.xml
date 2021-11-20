@@ -190,7 +190,7 @@
 
             <TextView
                 android:id="@+id/monday1"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="@drawable/cell_shape_schedule"
                 android:gravity="center"
@@ -202,7 +202,7 @@
 
             <TextView
                 android:id="@+id/tuesday1"
-                android:layout_width="75dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="@drawable/cell_shape_schedule"
                 android:gravity="center"
@@ -260,6 +260,7 @@
                 android:background="@drawable/cell_shape_schedule"
                 android:gravity="center"
                 android:onClick="ClickMethod"
+                android:maxHeight="80dp"
                 android:text=""
                 android:textColor="@color/colorText"
                 android:textSize="10sp" />
@@ -323,6 +324,7 @@
                 android:background="@drawable/cell_shape_schedule"
                 android:gravity="center"
                 android:onClick="ClickMethod"
+                android:maxHeight="80dp"
                 android:text=""
                 android:textColor="@color/colorText"
                 android:textSize="10sp" />
@@ -386,6 +388,7 @@
                 android:background="@drawable/cell_shape_schedule"
                 android:gravity="center"
                 android:onClick="ClickMethod"
+                android:maxHeight="80dp"
                 android:text=""
                 android:textColor="@color/colorText"
                 android:textSize="10sp" />
@@ -451,6 +454,7 @@
                 android:background="@drawable/cell_shape_schedule"
                 android:gravity="center"
                 android:onClick="ClickMethod"
+                android:maxHeight="80dp"
                 android:text=""
                 android:textColor="@color/colorText"
                 android:textSize="10sp" />
@@ -514,6 +518,7 @@
                 android:background="@drawable/cell_shape_schedule"
                 android:gravity="center"
                 android:onClick="ClickMethod"
+                android:maxHeight="80dp"
                 android:text=""
                 android:textColor="@color/colorText"
                 android:textSize="10sp" />
@@ -588,6 +593,7 @@
                 android:background="@drawable/cell_shape_schedule"
                 android:gravity="center"
                 android:onClick="ClickMethod"
+                android:maxHeight="80dp"
                 android:text=""
                 android:textColor="@color/colorText"
                 android:textSize="10sp" />
@@ -640,6 +646,7 @@
                 android:background="@drawable/cell_shape_schedule"
                 android:gravity="center"
                 android:onClick="ClickMethod"
+                android:maxHeight="80dp"
                 android:text=""
                 android:textColor="@color/colorText"
                 android:textSize="10sp" />

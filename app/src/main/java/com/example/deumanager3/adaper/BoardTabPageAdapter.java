@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.example.deumanager3.BoardAnonymousFragment;
-import com.example.deumanager3.BoardClassEstimFragment;
+import com.example.deumanager3.BoardClassRecommendationFragment;
 import com.example.deumanager3.BoardLossFragment;
 import com.example.deumanager3.BoardTradeFragment;
 
@@ -24,7 +24,7 @@ public class BoardTabPageAdapter extends FragmentStatePagerAdapter {
 
         switch (position) {
             case 0:
-                return new BoardClassEstimFragment();
+                return new BoardClassRecommendationFragment();
 
             case 1:
                 return new BoardTradeFragment();

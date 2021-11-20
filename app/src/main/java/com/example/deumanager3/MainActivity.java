@@ -61,8 +61,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         user1.readUserData();
-//        sHomeFragment.setName(GoogleLoginActivity.getN());//없음
-//        Log.i("이름",user.getUserName());;//없음
+
         replaceFragment(sHomeFragment);
         toolbarText.setText("홈");
         BottomNavigationView bottomNavigationView = findViewById(R.id.main_bnv);
@@ -79,13 +78,12 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.action_two://시간표
                         Intent scheduleIntent = new Intent (MainActivity.this, ScheduleActivity.class);
                         startActivity(scheduleIntent);
-//                        replaceFragment(scheduleFragment);
-//                        toolbarText.setText("SCHEDULE");
+
                         return true;
                     case R.id.action_three://캘린더
                         Intent calenderIntent = new Intent(MainActivity.this, CalendarActivity.class);
                         startActivity(calenderIntent);
-                        //   toolbarText.setText("HOME");
+
                         return true;
                     case R.id.action_four://공지
                         replaceFragment(sNoticeFragment);
@@ -94,14 +92,12 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.action_five://게시판
                         Intent boardIntent = new Intent(MainActivity.this, BoardActivity.class);
                         startActivity(boardIntent);
-                        // toolbarText.setText("HOME");
+
                         return true;
                 }
                 return false;
             }
         });
-//        final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//        fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
 
         backPressCloseHandler = new BackPressCloseHandler(this);
 
@@ -114,30 +110,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    //tool bar에 있는 설정 메뉴
-//    @Override
-//    public boolean onCreateOptionsMenu( Menu menu ) {
-//        getMenuInflater().inflate(R.menu.menu_action_bar, menu);
-//        return true;
-//    }
-
-    //tool bar에 있는 설정메뉴 클릭시
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // TODO Auto-generated method stub
         switch (item.getItemId()) {
-//            case R.id.setting_button:
-//                Intent intent = new Intent(MainActivity.this, SettingActivity.class);
-//                startActivity(intent);
-//            case R.id.logout:
-//                Toast.makeText(this, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
-//                break;
-//            case R.id.second:
-//                Toast.makeText(this, "2222", Toast.LENGTH_SHORT).show();
-//                break;
 
-//            default:
-//                return super.onOptionsItemSelected(item);
         }
         return true;
     }

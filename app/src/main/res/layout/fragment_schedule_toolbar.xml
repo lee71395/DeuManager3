@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:textColor="#ffffff"
             android:textSize="26sp"
-            android:text="SCHEDULE"
+            android:text="시간표"
             android:id="@+id/toolbar_title" />
         <ImageButton
             android:id="@+id/writing_button"

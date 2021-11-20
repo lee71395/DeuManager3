@@ -40,8 +40,6 @@ public abstract class CommonBoardFragment extends Fragment {
         linearLayoutManager.scrollToPositionWithOffset(0, 0);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-//        showProgressDialog();
-
         setAdapter(getRef());
 
         return view;
@@ -111,7 +109,6 @@ public abstract class CommonBoardFragment extends Fragment {
             public void onDataChanged() {
 //                recyclerView.getLayoutManager().scrollToPosition(recyclerView.getAdapter().getItemCount() - 1);
 //                새글 작성시 스크롤 최상단으로 이동
-
                 progressDialog.dismiss();
             }
         });

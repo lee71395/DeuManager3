@@ -28,6 +28,7 @@ public class MyEventDay extends EventDay implements Parcelable {
     String getNote() {
         return mNote;
     }
+
     public int getYear() {
         return this.year;
     }

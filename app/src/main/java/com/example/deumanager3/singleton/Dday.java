@@ -40,14 +40,6 @@ public class Dday {
         this.year = year;
     }
 
-//    public String getResult() {
-//        return result;
-//    }
-//
-//    public void setResult(String result) {
-//        this.result = result;
-//    }
-
     public Dday(int year, int monthOfYear, int dayOfMonth, String authorUid) {
         this.day = dayOfMonth;
         this.month = monthOfYear+1;

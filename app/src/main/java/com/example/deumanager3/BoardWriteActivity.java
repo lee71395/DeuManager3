@@ -63,7 +63,6 @@ public class BoardWriteActivity extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(BoardWriteActivity.this, R.array.board_spinner, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         board_spinner.setAdapter(adapter);
-
         postModel = new PostModel((String) board_spinner.getSelectedItem());
 
 
@@ -74,8 +73,6 @@ public class BoardWriteActivity extends AppCompatActivity {
             rewrite = true;
 
         }
-
-
 
         writeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,15 +85,12 @@ public class BoardWriteActivity extends AppCompatActivity {
             }
         });
 
-
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-
-
     }
 
     private boolean isTextInputError() {
@@ -109,7 +103,6 @@ public class BoardWriteActivity extends AppCompatActivity {
             contentsEditText.requestFocus();
             return true;
         }
-
         return false;
     }
 
@@ -117,11 +110,10 @@ public class BoardWriteActivity extends AppCompatActivity {
         if (rewrite) {
             int commentCount = getIntent().getExtras().getInt("COMMENT_COUNT");
             postModel.correctPost((String) board_spinner.getSelectedItem(), userName, titleEditText.getText().toString(), contentsEditText.getText().toString(), postKey, commentCount);
-
-        } else
+        }
+        else
             postModel.writePost((String) board_spinner.getSelectedItem(), userName, titleEditText.getText().toString(), contentsEditText.getText().toString());
-
-        Toast.makeText(getApplicationContext(), "작성이 완료되었습니다.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "작성이 완료되었습니다.", Toast.LENGTH_SHORT).show();
     }
 
     private String getPostAuthorName() {

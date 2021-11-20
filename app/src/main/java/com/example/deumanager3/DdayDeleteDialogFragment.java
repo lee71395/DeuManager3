@@ -24,18 +24,18 @@ public class DdayDeleteDialogFragment extends DialogFragment {
     private OnMyDeleteDialogResult mOnMyDeleteDialogResult;
     private Schedule schedule = new Schedule();
 
-
-
     public interface OnMyDeleteDialogResult{
 
         void delete(boolean result);
 
     }
+
     public void setDeleteDialogResult(OnMyDeleteDialogResult dialogResult){
 
         mOnMyDeleteDialogResult = dialogResult;
 
     }
+
     public void DeleteSchedule() {
 
     }

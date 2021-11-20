@@ -24,6 +24,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/manager_logo3"/>
+        android:src="@drawable/manager_logo"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

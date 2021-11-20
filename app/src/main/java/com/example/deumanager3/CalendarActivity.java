@@ -43,8 +43,7 @@ public class CalendarActivity extends AppCompatActivity {
     public static final String EVENT = "event";
     private static final int ADD_NOTE = 44;
     private CalendarView mCalendarView;
-    //    private DatabaseReference mDatabaseRef;
-    //private TextView textView;
+
     private List<EventDay> mEventDays = new ArrayList<>();
     private List<CalendarSingle> gCalendarSingles;
     private CalendarModel calendarModel = new CalendarModel("캘린더");
@@ -75,41 +74,21 @@ public class CalendarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calender);
-        button = findViewById(R.id.button2);
+        FloatingActionButton floatingActionButton2 = (FloatingActionButton) findViewById(R.id.floatingActionButton2);
+
         mCalendarView = (CalendarView) findViewById(R.id.calendarView);
         noteView = findViewById(R.id.noteView);
         readCalendar();
 
-//        readCalendar();
-//        Calendar calendar1 = Calendar.getInstance();
-//        calendar1.getTime();
-//
-//        eventDay.add(new EventDay(calendar1,R.drawable.ic_message_black_48dp));
-//        mCalendarView.setDate(calendar1);
-//        mCalendarView.setEvents(eventDay);
-
-
-//        readCalendar();
-
-//        calendarModel.addCalendarModel(calendarSingle);
         this.mSchedules = scheduleModel.getSchedules();
         this.gCalendarSingles = calendarModel.getmCalendars();
         Log.i("g Cal 가져옴",valueOf(gCalendarSingles.size()));
-//        for(int i = 0; i< gCalendarSingles.size(); i++) {
-//
-//            Calendar calendar = Calendar.getInstance();
-//            calendar.set(gCalendarSingles.get(i).getYear(), gCalendarSingles.get(i).getMonth(), gCalendarSingles.get(i).getDay());
-//            gEventDats.add(new EventDay(calendar,R.drawable.ic_message_black_48dp));
-//            mCalendarView.setDate(gEventDats.get(i).getCalendar());
-//            mCalendarView.setEvents(gEventDats);
-//
-//        }
 
         mCalendarView.setOnDayClickListener(new OnDayClickListener() {
             @Override
             public void onDayClick(EventDay eventDay) {
                 readCalendar();
-                button.setOnClickListener(new View.OnClickListener() {
+                floatingActionButton2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         if(noteView.getText().equals("메모 없음")){
@@ -121,7 +100,7 @@ public class CalendarActivity extends AppCompatActivity {
                 });
             }
         });
-        // textView = findViewById(R.id.preview_note);
+
         FloatingActionButton floatingActionButton = (FloatingActionButton) findViewById(R.id.floatingActionButton);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,33 +108,7 @@ public class CalendarActivity extends AppCompatActivity {
                 addNote();
             }
         });
-
-//        ValueEventListener calendarlistener = new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                // Get CalendarSingle object and use the values to update the UI
-////                CalendarSingle calendarSingle = dataSnapshot.getValue(CalendarSingle.class);
-////                MyEventDay myEventDay;
-////                Intent returnIntent = new Intent();
-////                Calendar calendar = Calendar.getInstance();
-////                calendar.set(calendarSingle.getYear(),calendarSingle.getMonth(),calendarSingle.getDay());
-////                myEventDay = new MyEventDay(calendar, R.drawable.ic_message_black_48dp, calendarSingle.getNote());
-////                returnIntent.putExtra(CalendarActivity.RESULT, myEventDay);
-////                setResult(Activity.RESULT_OK, returnIntent);
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//                // Getting Post failed, log a message
-//                Log.w("cancelled", "loadPost:onCancelled", databaseError.toException());
-//                // ...
-//            }
-//        };
-        // databaseReference.addValueEventListener(calendarlistener);
-
-
     }
-
 
 
     @Override
@@ -167,6 +120,7 @@ public class CalendarActivity extends AppCompatActivity {
             mCalendarView.setEvents(mEventDays);
         }
     }
+
     private void addNote() {
         Intent intent = new Intent(this, AddNoteActivity.class);
         startActivityForResult(intent, ADD_NOTE);
@@ -193,27 +147,19 @@ public class CalendarActivity extends AppCompatActivity {
                 }
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     get_Year = ds.getValue(CalendarSingle.class).getYear();
-                    //            Log.i("연도 가져옴", valueOf(get_Year));
                     get_Month = ds.getValue(CalendarSingle.class).getMonth();
-                    //            Log.i("월 가져옴", valueOf(get_Month));
                     get_Day = ds.getValue(CalendarSingle.class).getDay();
-                    //            Log.i("일 가져옴", valueOf(get_Day));
                     getNote = ds.getValue(CalendarSingle.class).getNote();
-                    //            Log.i("노트 가져옴", valueOf(getNote));
                     Calendar calendar = Calendar.getInstance();
                     calendar.set(get_Year, get_Month - 1, get_Day);
-                    eventDay.add(new EventDay(calendar, R.drawable.ic_message_black_48dp));
+                    eventDay.add(new EventDay(calendar, R.drawable.ic_message_red));
                     mCalendarView.setEvents(eventDay);
                 }
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     get_Year = ds.getValue(CalendarSingle.class).getYear();
-                    //            Log.i("연도 가져옴", valueOf(get_Year));
                     get_Month = ds.getValue(CalendarSingle.class).getMonth();
-                    //            Log.i("월 가져옴", valueOf(get_Month));
                     get_Day = ds.getValue(CalendarSingle.class).getDay();
-                    //            Log.i("일 가져옴", valueOf(get_Day));
                     getNote = ds.getValue(CalendarSingle.class).getNote();
-                    //            Log.i("노트 가져옴", valueOf(getNote));
                     Calendar calendar = Calendar.getInstance();
                     calendar.set(get_Year,get_Month-1,get_Day);
 
@@ -235,6 +181,7 @@ public class CalendarActivity extends AppCompatActivity {
             }
         });
     }
+
     public void DeleteCalendar() {
         FragmentManager manager = getSupportFragmentManager();
         CalendarDeleteDialogFragment deleteDialogFragment = new CalendarDeleteDialogFragment();

@@ -27,12 +27,11 @@ public class BoardTabFragment extends Fragment {
     public View onCreateView( LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         currentTab=0;
         View view = inflater.inflate(R.layout.fragment_board, container, false);
-//        ((BoardActivity) getActivity()).setToolbarTitle("Board");
 
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.board_tab);
         tabLayout.setupWithViewPager(mViewPager);
 
-        tabLayout.addTab(tabLayout.newTab().setText("수업평가"));
+        tabLayout.addTab(tabLayout.newTab().setText("추천강의"));
         tabLayout.addTab(tabLayout.newTab().setText("중고거래"));
         tabLayout.addTab(tabLayout.newTab().setText("익명자유"));
         tabLayout.addTab(tabLayout.newTab().setText("분실물신고"));

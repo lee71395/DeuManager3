@@ -48,11 +48,10 @@ public class AddNoteActivity extends AppCompatActivity {
                     finish();
                 }
                 myEventDay = new MyEventDay(datePicker.getSelectedDate(),
-                        R.drawable.ic_message_black_48dp, noteEditText.getText().toString());
+                        R.drawable.ic_message_red, noteEditText.getText().toString());
                 returnIntent.putExtra(CalendarActivity.RESULT, myEventDay);
-//                setResult(Activity.RESULT_OK, returnIntent);
-                sendCalendar();
 
+                sendCalendar();
                 finish();
             }
         });

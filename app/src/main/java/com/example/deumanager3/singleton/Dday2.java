@@ -11,8 +11,8 @@ public class Dday2 {
     private String userName;
     private String authorUid;
 
-    public Dday2() {
-    }
+    public Dday2() {    }
+
     public String getUserName() { return userName; }
 
     public void setUserName(String userName) {this.userName = userName;}
@@ -35,11 +35,6 @@ public class Dday2 {
         this.year2 = year2;
     }
 
-//    public String getResult2() {
-//        return result2;
-//    }
-//
-//    public void setResult2(String result2) { this.result2 = result2; }
 
     public Dday2(int year2, int monthOfYear2, int dayOfMonth2, String authorUid) {
         this.day2 = dayOfMonth2;

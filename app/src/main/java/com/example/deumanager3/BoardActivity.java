@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 public class BoardActivity extends AppCompatActivity {
-    // private Fragment toolbarFragment;
     private ActionBar actionBar;
     private TextView toolbarText;
     @Override
@@ -24,7 +23,7 @@ public class BoardActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         actionBar = getSupportActionBar();
-        actionBar.setDisplayShowCustomEnabled(true); //커스터마이징 하기 위해 필요
+        actionBar.setDisplayShowCustomEnabled(true); //커스터마이징
         actionBar.setDisplayShowTitleEnabled(false);
         toolbarText.setText("게시판");
         FragmentManager fm = getSupportFragmentManager();
@@ -34,7 +33,7 @@ public class BoardActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+            case android.R.id.home:{ //toolbar back키 누르면 동작
                 finish();
                 return true;
             }

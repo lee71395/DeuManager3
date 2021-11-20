@@ -38,11 +38,6 @@ import java.util.List;
 
 public class HomeFragment extends ToolBarFragment {
 
-
-    //    @NonNull
-//    public static HomeFragment newInstance() {
-//        return new HomeFragment();
-//    }
     private static final String DIALOG_DDAY = "DialogDday";
     private FirebaseAuth mFirebaseAuth;
     private DatabaseReference mDatabaseRef;
@@ -75,7 +70,7 @@ public class HomeFragment extends ToolBarFragment {
     private int tMonth;
     private int tDay;
     private int tDoW;
-    private String [] dayArray = {"일", "화", "수", "목", "금", "토", "일"};
+    private String [] dayArray = {"일", "월", "화", "수", "목", "금", "토"};
     private String [] dAry = {"월요일", "화요일", "수요일", "목요일", "금요일"};
     private String DayoW;
     private int dYear=1;        //디데이 연월일 변수
@@ -107,30 +102,11 @@ public class HomeFragment extends ToolBarFragment {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         setToolbar();
-//        phone = view.findViewById(R.id.phone);
-//        map = view.findViewById(R.id.map);
         book = view.findViewById(R.id.book);
         heart = view.findViewById(R.id.heart);
         readDDay();
         readDDay2();
         loadschedule();
-//        phone.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.deu.ac.kr/www/tel/21"));
-//                intent.setPackage("com.android.chrome");
-//                startActivity(intent);
-//            }
-//        });
-//
-//        map.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.deu.ac.kr/www/content/14"));
-//                intent.setPackage("com.android.chrome");
-//                startActivity(intent);
-//            }
-//        });
 
         tname=view.findViewById(R.id.name);
         email=view.findViewById(R.id.email);
@@ -154,12 +130,6 @@ public class HomeFragment extends ToolBarFragment {
         tclass[6] = view.findViewById(R.id.tclass7);
         tclass[7] = view.findViewById(R.id.tclass8);
 
-//        addTextBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                todayText.setText();
-//            }
-//        });
         book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick( View v ) {
@@ -179,6 +149,7 @@ public class HomeFragment extends ToolBarFragment {
                 check=2;
             }
         });
+
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -191,19 +162,20 @@ public class HomeFragment extends ToolBarFragment {
                 ResetDday2();
             }
         });
-        Calendar calendar = Calendar.getInstance();              //현재 날짜 불러옴
+
+        Calendar calendar = Calendar.getInstance();    //현재 날짜
         tYear = calendar.get(Calendar.YEAR);
         tMonth = calendar.get(Calendar.MONTH);
         tDay = calendar.get(Calendar.DAY_OF_MONTH);
         tDoW = calendar.get(Calendar.DAY_OF_WEEK) - 1; //배열과 맞추기 위해 -1
         Calendar dCalendar = Calendar.getInstance();
         dCalendar.set(dYear, dMonth, dDay);
-        n = (tDoW % 7) - 1;                            //배열과 맞추기 위해 -1
+        n = (tDoW % 7);
         DayoW = dayArray[n];
 
-        t = calendar.getTimeInMillis();                 //오늘 날짜를 밀리타임으로 바꿈
-        d = dCalendar.getTimeInMillis();              //디데이날짜를 밀리타임으로 바꿈
-        r = (d - t) / (24 * 60 * 60 * 1000);                 //디데이 날짜에서 오늘 날짜를 뺀 값을 '일'단위로 바꿈
+        t = calendar.getTimeInMillis();                //오늘 날짜를 밀리타임으로 바꿈
+        d = dCalendar.getTimeInMillis();               //디데이날짜를 밀리타임으로 바꿈
+        r = (d - t) / (24 * 60 * 60 * 1000);           //디데이 날짜에서 오늘 날짜를 뺀 값을 '일'단위로 바꿈
 
         resultNumber = (int) r + 1;
         updateDisplay();
@@ -214,7 +186,7 @@ public class HomeFragment extends ToolBarFragment {
     @Override
     public boolean onOptionsItemSelected( MenuItem item ) {
         switch (item.getItemId()) {
-            case android.R.id.home: { //toolbar의 back키 눌렀을 때 동작
+            case android.R.id.home: { //toolbar back키 누르면 동작
                 getActivity().finish();
                 return true;
             }
@@ -222,12 +194,10 @@ public class HomeFragment extends ToolBarFragment {
         return super.onOptionsItemSelected(item);
     }
 
-
-
     public void TodaySchedule(){
         mDatabaseRef = FirebaseDatabase.getInstance().getReference();
         int cnt = 0, chk;
-        if(n < 5){
+        if(0 <= n && n <= 5){
             for(int i = 1; i <= 8; i++) {
                 int j = i - 1;
 
@@ -254,33 +224,13 @@ public class HomeFragment extends ToolBarFragment {
             }
         }
     }
+
     private void updateDisplay() {
 
         todayText.setText(String.format("%d년 %d월 %d일 %s요일",tYear, tMonth + 1,tDay, DayoW));
         mDatabaseRef = FirebaseDatabase.getInstance().getReference();
         TodaySchedule();
 
-//        if(check==1) {
-//            ddayText.setText(String.format("%d년 %d월 %d일",dYear, dMonth + 1,dDay));
-//
-//            if(resultNumber>=0){
-//                resultText.setText(String.format("D-%d", resultNumber));
-//            }
-//            else{
-//                int absR=Math.abs(resultNumber);
-//                resultText.setText(String.format("D+%d", absR));
-//            }
-//        }
-//        else if(check==2) {
-//            ddayText2.setText(String.format("%d년 %d월 %d일", dYear2, dMonth2 + 1, dDay2));
-//
-//            if (resultNumber >= 0) {
-//                resultText2.setText(String.format("D-%d", resultNumber));
-//            } else {
-//                int absR = Math.abs(resultNumber);
-//                resultText2.setText(String.format("D+%d", absR));
-//            }
-//        }
     }//디데이 날짜가 오늘날짜보다 뒤에오면 '-', 앞에오면 '+'를 붙인다
 
     private DatePickerDialog.OnDateSetListener dDateSetListener=new DatePickerDialog.OnDateSetListener() {
@@ -351,7 +301,6 @@ public class HomeFragment extends ToolBarFragment {
         }
     };
     public void ResetDday1() {
-//        mDatabaseRef = FirebaseDatabase.getInstance().getReference();
         FragmentManager manager = getFragmentManager();
         DdayDeleteDialogFragment deleteDialogFragment = new DdayDeleteDialogFragment();
         deleteDialogFragment.show(manager, DIALOG_DDAY);
@@ -368,7 +317,6 @@ public class HomeFragment extends ToolBarFragment {
         });
     }
     public void ResetDday2() {
-//        mDatabaseRef = FirebaseDatabase.getInstance().getReference();
         FragmentManager manager = getFragmentManager();
         DdayDeleteDialogFragment deleteDialogFragment = new DdayDeleteDialogFragment();
         deleteDialogFragment.show(manager, DIALOG_DDAY);
@@ -437,7 +385,6 @@ public class HomeFragment extends ToolBarFragment {
                     int Year = dday.getYear();
                     int Month = dday.getMonth();
                     int Day = dday.getDay();
-//                    String Result = dday.getResult();
 
                     ddayText2.setText(String.format("%d년 %d월 %d일", Year, Month, Day));
                     Calendar calendar = Calendar.getInstance();
@@ -496,7 +443,6 @@ public class HomeFragment extends ToolBarFragment {
 
             }
         });
-
     }
 
     public void setName(String name) {

@@ -184,10 +184,6 @@ public class GoogleLoginActivity extends AppCompatActivity
                 loginButton.setVisibility(View.VISIBLE);
 
             }
-
         }
-
     }
-
-
 }

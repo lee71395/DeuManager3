@@ -61,10 +61,6 @@ public class CalendarModel {
                     String getUid = ds.getValue(CalendarSingle.class).getcAuthoruid();
                     CalendarSingle calendarSingle = new CalendarSingle(getNote, getYear, getMonth, getDay, "캘린더",getUid);
                     addCalendarModel(calendarSingle);
-//                    Calendar calendar = Calendar.getInstance();
-//                    calendar.set(getYear,getMonth,getDay);
-//                    myEventDay = new MyEventDay(calendar,
-//                            R.drawable.ic_message_black_48dp, getNote);
                 }
             }
 

@@ -28,13 +28,12 @@ public class UserModel {
                 //데이터가 없는 경우 반환 되는 스냅샷 null
                 if (dataSnapshot.getValue() == null) {
                     setUserData();
-                } else {
+                }
+                else {
                     User.getInstance().setUserName(user.getDisplayName());
                     User.getInstance().setUid(user.getUid());
                     User.getInstance().setEmail(user.getEmail());
                     User.getInstance().setDisabled(Objects.requireNonNull(dataSnapshot.getValue(User.class)).isDisabled());
-//                    suser.setUserName(user.getDisplayName());
-    //                suser.setEmail(user.getEmail());
                 }
             }
 
