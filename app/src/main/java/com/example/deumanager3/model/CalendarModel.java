@@ -68,7 +68,7 @@ public class CalendarModel {
 
             }
         });
-        }
+    }
 
     public void writeCalendar( String postType, int y, int m, int d, String note, String uid) {
         String dpath = String.valueOf(y) + String.valueOf(m) + String.valueOf(d);

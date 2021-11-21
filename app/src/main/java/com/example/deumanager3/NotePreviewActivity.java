@@ -28,8 +28,7 @@ public class NotePreviewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_note_preview);
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
-        Intent intent = getIntent();
-        //이후 텍스트뷰 설정을 위한 intent
+        Intent intent = getIntent();        //텍스트뷰 설정하기 위한 intent
         Intent putintet = new Intent(this, CalendarActivity.class);
 
         TextView note = (TextView) findViewById(R.id.note);
@@ -37,7 +36,6 @@ public class NotePreviewActivity extends AppCompatActivity {
             Object event = intent.getParcelableExtra(CalendarActivity.EVENT);
             if(event instanceof MyEventDay){
                 MyEventDay myEventDay = (MyEventDay)event;
-               // getSupportActionBar().setTitle(getFormattedDate(myEventDay.getCalendar().getTime()));
                 note.setText(myEventDay.getNote());
                 return;
             }

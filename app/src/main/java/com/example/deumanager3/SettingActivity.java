@@ -62,9 +62,5 @@ public class SettingActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"동의대학교 학교생활 매니저 \n 애플리케이션 입니다!!!",Toast.LENGTH_SHORT).show();
             }
         });
-
-
     }
-
-
 }

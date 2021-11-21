@@ -25,7 +25,6 @@ public class ScheduleModel {
 
     public ScheduleModel() {
         databaseReference = FirebaseDatabase.getInstance().getReference();
-
         databaseReference.child("시간표").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -44,10 +43,8 @@ public class ScheduleModel {
             public void onCancelled(DatabaseError databaseError) {
 
             }
-
         });
     }
-
 
     public void writeSchedule(String className, String classRoom, String classDay, String classTime,String authorUid) {
         databaseReference = FirebaseDatabase.getInstance().getReference();

@@ -47,5 +47,4 @@ public class Comment {
     public static Comment newComment( String userName, String message) {
         return new Comment(userName, message);
     }
-
 }

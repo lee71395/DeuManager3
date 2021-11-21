@@ -19,7 +19,6 @@ public class Schedule {
         this.authorUid = User.getInstance().getUid();
     }
 
-
     public String getClassName() {
         return className;
     }
@@ -48,6 +47,4 @@ public class Schedule {
     public static Schedule newSchedule(String className, String classRoom, String classDay, String classTime, String authorUid) {
         return new Schedule(className, classRoom, classDay, classTime, authorUid);
     }
-
-
 }

@@ -43,16 +43,15 @@ public class CalendarSingle {
 
     public CalendarSingle( String note, int y, int m, int d, String type, String uid) {
         this.note = note;
-        this.year =y;
-        this.month=m;
-        this.day=d;
-        this.type=type;
+        this.year = y;
+        this.month = m;
+        this.day = d;
+        this.type = type;
         this.cAuthoruid = uid;
-
     }
 
     public static CalendarSingle newCalendar( String note, int y, int m, int d, String type, String uid) {
-        return new CalendarSingle(note,y,m,d,type,uid);
+        return new CalendarSingle(note, y, m, d, type, uid);
     }
 
 }

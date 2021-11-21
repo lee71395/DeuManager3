@@ -83,12 +83,8 @@ public class HomeFragment extends ToolBarFragment {
     private long r;
     private int n;
     private int resultNumber=0;
-
-    static final int DATE_DIALOG_ID=0;
-
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-//    private User user;
+    static final int DATE_DIALOG_ID=0;
 
 
     @Nullable
@@ -221,12 +217,11 @@ public class HomeFragment extends ToolBarFragment {
     }
 
     private void updateDisplay() {
-
         todayText.setText(String.format("%d년 %d월 %d일 %s요일",tYear, tMonth + 1,tDay, DayoW));
         mDatabaseRef = FirebaseDatabase.getInstance().getReference();
         TodaySchedule();
 
-    }//디데이 날짜가 오늘날짜보다 뒤에오면 '-', 앞에오면 '+'를 붙인다
+    }
 
     private DatePickerDialog.OnDateSetListener dDateSetListener=new DatePickerDialog.OnDateSetListener() {
 
@@ -368,6 +363,7 @@ public class HomeFragment extends ToolBarFragment {
         });
 
     }
+
     private void readDDay2() {
         mDatabaseRef = FirebaseDatabase.getInstance().getReference();
         mDatabaseRef.child("Dday2").child(user.getUid()).addValueEventListener(new ValueEventListener() {
@@ -407,8 +403,8 @@ public class HomeFragment extends ToolBarFragment {
 
             }
         });
-
     }
+
     private void loadschedule() {
         mDatabaseRef = FirebaseDatabase.getInstance().getReference();
         mDatabaseRef.child("캘린더").child(user.getUid()).addValueEventListener(new ValueEventListener() {

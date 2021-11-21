@@ -276,8 +276,6 @@ public class ScheduleFragment extends ToolBarFragment {
         }
     }
 
-
-
     public void DeleteClass(View v, String sDay, int sTime) {
         FragmentManager manager = getFragmentManager();
         ScheduleDeleteDialogFragment deleteDialogFragment = new ScheduleDeleteDialogFragment();
@@ -293,7 +291,4 @@ public class ScheduleFragment extends ToolBarFragment {
             }
         });
     }
-
-
-
 }

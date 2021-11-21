@@ -34,7 +34,6 @@ public class PostModel {
             public void onCancelled(DatabaseError databaseError) {
 
             }
-
         });
     }
 
@@ -49,7 +48,6 @@ public class PostModel {
 
     }//수정
 
-    //원하는 데이터를 얻기 위해 데이터베이스에 정보를 요청(Request)하는 것=쿼리
     public FirebaseRecyclerAdapter setAdapter( Query query, final String postType) {
 
         FirebaseRecyclerAdapter<Post, PostViewHolder> adapter = new FirebaseRecyclerAdapter<Post, PostViewHolder>(Post.class, R.layout.list_item_post,

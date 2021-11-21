@@ -20,9 +20,6 @@ public class MyEventDay extends EventDay implements Parcelable {
         mon = dayc.get(Calendar.MONTH)+1;
         day = dayc.get(Calendar.DAY_OF_MONTH);
         mNote = note;
-//        Log.i("년",String.valueOf(year));
-//        Log.i("달",String.valueOf(mon));
-//        Log.i("일",String.valueOf(day));
     }
 
     String getNote() {

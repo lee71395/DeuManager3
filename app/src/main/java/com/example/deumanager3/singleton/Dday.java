@@ -44,7 +44,6 @@ public class Dday {
         this.day = dayOfMonth;
         this.month = monthOfYear+1;
         this.year = year;
-//        this.result = result;
         this.authorUid = User.getInstance().getUid();
     }
 }

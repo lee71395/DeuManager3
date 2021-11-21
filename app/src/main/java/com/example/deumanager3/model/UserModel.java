@@ -22,10 +22,8 @@ public class UserModel {
 
     public void readUserData() {
         databaseReference.child("User").child(user.getUid()).addValueEventListener(new ValueEventListener() {
-            //지정된 데이터베이스 참조 및 하위 위치에서 데이터가 변경될 때마다 호출
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                //데이터가 없는 경우 반환 되는 스냅샷 null
                 if (dataSnapshot.getValue() == null) {
                     setUserData();
                 }

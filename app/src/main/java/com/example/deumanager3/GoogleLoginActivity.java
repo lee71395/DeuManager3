@@ -110,7 +110,6 @@ public class GoogleLoginActivity extends AppCompatActivity
                             Toast.LENGTH_SHORT).show();
                 } else {
                     Log.e("GoogleLogin", "login fail cause=" + result.getStatus().getStatusMessage());
-                    // 로그인 실패 했을때
                     Toast.makeText(GoogleLoginActivity.this, "로그인에 실패하셨습니다.",
                             Toast.LENGTH_SHORT).show();
                 }
@@ -175,7 +174,6 @@ public class GoogleLoginActivity extends AppCompatActivity
                 finish();
             } else {
                 loginButton.setVisibility(View.VISIBLE);
-
             }
         }
     }

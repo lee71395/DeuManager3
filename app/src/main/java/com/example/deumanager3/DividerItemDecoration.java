@@ -24,13 +24,6 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
         a.recycle();
     }
 
-//    View의 아이템보다 위에 그리고 싶을 때는 이쪽 메소드를 사용한다
-//    @Override
-//    public void onDrawOver(Canvas c, RecyclerView parent, RecyclerView.State state) {
-//        super.onDrawOver(c, parent, state);
-//    }
-
-
     // View의 아이템보다 아래에 그리고 싶을 때는 이쪽 메소드를 사용한다
     // 여기서는 RecyclerView의 아이템마다 아래에 선을 그린다
     @Override

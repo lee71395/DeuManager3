@@ -107,12 +107,9 @@ public abstract class CommonBoardFragment extends Fragment {
         postModel.setOnDataChangedListener(new OnDataChangedListener() {
             @Override
             public void onDataChanged() {
-//                recyclerView.getLayoutManager().scrollToPosition(recyclerView.getAdapter().getItemCount() - 1);
-//                새글 작성시 스크롤 최상단으로 이동
                 progressDialog.dismiss();
             }
         });
-
         recyclerView.setAdapter(postModel.setAdapter(query, getPostType()));
     }
 

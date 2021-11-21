@@ -29,12 +29,6 @@ public class ScheduleDialogFragment extends DialogFragment {
     Bundle bundle = new Bundle();
     private DatabaseReference databaseReference;
     OnMyDialogResult myDialogResult;
-
-
-
-    public interface OnTimePickerSetListener{
-        void onTimePickerSet(String name, String room, int day, int time );
-    }
     private EditText className;
     private EditText classRoom;
     private Spinner classDay;
@@ -48,18 +42,17 @@ public class ScheduleDialogFragment extends DialogFragment {
     private int check;
 
 
+    public interface OnTimePickerSetListener{
+        void onTimePickerSet(String name, String room, int day, int time );
+    }
 
     public interface OnMyDialogResult{
-
         void finish(Object result);
-
     }
+
     public void setDialogResult(OnMyDialogResult dialogResult){
-
         mDialogResult = dialogResult;
-
     }
-
 
     @NonNull
     @Override
@@ -73,7 +66,6 @@ public class ScheduleDialogFragment extends DialogFragment {
         classDay = view.findViewById(R.id.class_day);
         classTime = view.findViewById(R.id.class_time);
         databaseReference = FirebaseDatabase.getInstance().getReference();
-
 
         return alertDialog
                 .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
@@ -97,13 +89,11 @@ public class ScheduleDialogFragment extends DialogFragment {
                         System.out.println(Time);
 
                         wirteNewSche(cName,cRoom,Day,Time,cAuthorUid);
-                        //mDialogResult.finish(schedule);
-
-//                        createView(schedule.getClassName(), schedule.getClassRoom(), schedule.getClassDay(), schedule.getClassTime());
                     }
                 })
                 .create();
     }
+
     private void wirteNewSche(String cname, String croom, String cday, String ctime, String authorUid) {
         Schedule schedule = new Schedule(cname, croom, cday, ctime, authorUid);
         databaseReference.child("시간표").child(authorUid).child(cday).child(ctime).setValue(schedule)
@@ -113,10 +103,5 @@ public class ScheduleDialogFragment extends DialogFragment {
 
                     }
                 });
-
-
     }
-
-
-
 }

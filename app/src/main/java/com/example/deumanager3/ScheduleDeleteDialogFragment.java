@@ -35,15 +35,13 @@ public class ScheduleDeleteDialogFragment extends DialogFragment {
 
 
     public interface OnMyDeleteDialogResult{
-
         void delete(boolean result);
-
     }
+
     public void setDeleteDialogResult(OnMyDeleteDialogResult dialogResult){
-
         mOnMyDeleteDialogResult = dialogResult;
-
     }
+
     public void DeleteSchedule() {
 
     }

@@ -52,7 +52,6 @@ public class CommentModel {
         });
     }
 
-
     public FirebaseRecyclerAdapter<Comment, CommentViewHolder> loadCommentList(){
         FirebaseRecyclerAdapter<Comment, CommentViewHolder> mAdapter = new FirebaseRecyclerAdapter<Comment, CommentViewHolder>(Comment.class, R.layout.list_item_comment,
                 CommentViewHolder.class, databaseReference.child("comments").child(dataRefKey)) {
@@ -63,7 +62,6 @@ public class CommentModel {
             }
 
         };
-
         return mAdapter;
     }
 
@@ -80,7 +78,6 @@ public class CommentModel {
             userName = User.getInstance().getUserName();
 
         return userName;
-
     }
 
     public void removeListener() {
