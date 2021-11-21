@@ -25,16 +25,12 @@ public class BoardTabPageAdapter extends FragmentStatePagerAdapter {
         switch (position) {
             case 0:
                 return new BoardClassRecommendationFragment();
-
             case 1:
                 return new BoardTradeFragment();
-
             case 2:
                 return new BoardAnonymousFragment();
-
             case 3:
                 return new BoardLossFragment();
-
             default:
                 return null;
         }

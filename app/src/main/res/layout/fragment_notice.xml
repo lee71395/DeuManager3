@@ -93,7 +93,7 @@
             android:layout_weight="1"
             android:background="#00000000"
             android:scaleType="fitXY"
-            android:src="@drawable/notice" />
+            android:src="@drawable/notice2" />
 
         <ImageButton
             android:id="@+id/timetable_button"

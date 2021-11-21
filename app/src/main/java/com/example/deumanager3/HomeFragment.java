@@ -44,11 +44,6 @@ public class HomeFragment extends ToolBarFragment {
     private FirebaseDatabase database;
     private TextView tname;
     private TextView email;
-    private User user1;
-    private ImageView phone;
-    private ImageView map;
-    private ImageView bus;
-    private ImageView homepage;
     private ImageView book;
     private ImageView heart;
     private boolean DdayDelete = false;
@@ -71,7 +66,7 @@ public class HomeFragment extends ToolBarFragment {
     private int tDay;
     private int tDoW;
     private String [] dayArray = {"일", "월", "화", "수", "목", "금", "토"};
-    private String [] dAry = {"월요일", "화요일", "수요일", "목요일", "금요일"};
+    private String [] dAry = {"일요일","월요일", "화요일", "수요일", "목요일", "금요일","토요일"};
     private String DayoW;
     private int dYear=1;        //디데이 연월일 변수
     private int dMonth=1;
@@ -197,7 +192,7 @@ public class HomeFragment extends ToolBarFragment {
     public void TodaySchedule(){
         mDatabaseRef = FirebaseDatabase.getInstance().getReference();
         int cnt = 0, chk;
-        if(0 <= n && n <= 5){
+        if(n > 0 && n <= 5){
             for(int i = 1; i <= 8; i++) {
                 int j = i - 1;
 

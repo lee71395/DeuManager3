@@ -10,11 +10,11 @@
     <string name="todo">TODO</string>
     <string name="sign_out_with_google">Sign out With Google</string>
     <string name="action_settings">setting</string>
-    <string name="title_home_e">HOME</string>
-    <string name="title_board_e">NOTICE BOARD</string>
-    <string name="title_schedule_e">SCHEDULE</string>
-    <string name="title_calendar_e">CALENDER</string>
-    <string name="title_notice_e">NOTICE</string>
+    <string name="title_home_e">홈</string>
+    <string name="title_board_e">게시판</string>
+    <string name="title_schedule_e">시간표</string>
+    <string name="title_calendar_e">캘린더</string>
+    <string name="title_notice_e">공지사항</string>
     <string name="board_one">익명자유</string>
     <string name="board_two">추천강의</string>
     <string name="board_three">분실물신고</string>
@@ -38,7 +38,7 @@
     </string-array>
     <string name="no_note">메모가 없습니다.</string>
     <string name="save">저장하기</string>
-    <string name="write_note">노트 작성</string>
+    <string name="write_note">메모 작성</string>
     <string name="ellipsis">…</string>
     <string name="class_delete">해당 강의를 삭제하시겠습니까?</string>
     <string name="large_text">

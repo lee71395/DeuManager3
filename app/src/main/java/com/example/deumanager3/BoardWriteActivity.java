@@ -60,7 +60,8 @@ public class BoardWriteActivity extends AppCompatActivity {
             }
         });
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(BoardWriteActivity.this, R.array.board_spinner, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(BoardWriteActivity.this, R.array.board_spinner,
+                android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         board_spinner.setAdapter(adapter);
         postModel = new PostModel((String) board_spinner.getSelectedItem());
@@ -109,10 +110,12 @@ public class BoardWriteActivity extends AppCompatActivity {
     public void sendPost(String userName) {
         if (rewrite) {
             int commentCount = getIntent().getExtras().getInt("COMMENT_COUNT");
-            postModel.correctPost((String) board_spinner.getSelectedItem(), userName, titleEditText.getText().toString(), contentsEditText.getText().toString(), postKey, commentCount);
+            postModel.correctPost((String) board_spinner.getSelectedItem(), userName,
+                    titleEditText.getText().toString(), contentsEditText.getText().toString(), postKey, commentCount);
         }
         else
-            postModel.writePost((String) board_spinner.getSelectedItem(), userName, titleEditText.getText().toString(), contentsEditText.getText().toString());
+            postModel.writePost((String) board_spinner.getSelectedItem(), userName,
+                    titleEditText.getText().toString(), contentsEditText.getText().toString());
             Toast.makeText(getApplicationContext(), "작성이 완료되었습니다.", Toast.LENGTH_SHORT).show();
     }
 

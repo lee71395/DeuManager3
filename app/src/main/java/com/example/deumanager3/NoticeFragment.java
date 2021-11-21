@@ -27,14 +27,14 @@ public class NoticeFragment extends com.example.deumanager3.ToolBarFragment {
         DoorButton = view.findViewById(R.id.door_button);
         DAPButton = view.findViewById(R.id.dap_button);
         NoticeButton = view.findViewById(R.id.notice_button);
-        TimeTableButton = view.findViewById(R.id.timetable_button);
+        TimeTableButton = view.findViewById(R.id.tel_button);
         MapButton = view.findViewById(R.id.map_button);
         TelButton = view.findViewById(R.id.timetable_button);
 
         DoorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://door.deu.ac.kr/Home/Index"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mdoor.deu.ac.kr/"));
                 intent.setPackage("com.android.chrome");
                 startActivity(intent);
             }

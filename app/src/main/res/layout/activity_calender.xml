@@ -6,15 +6,36 @@
     android:layout_height="match_parent"
     tools:context="com.example.deumanager3.CalendarActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentTop="true"
+        android:background="#000080"
+        android:theme="@style/TestousToolbarDarkVer"
+        app:elevation="0dp">
+
+        <TextView
+            android:id="@+id/toolbartext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/campton_lightdemo"
+            android:text="@string/title_calendar_e"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
     <com.applandeo.materialcalendarview.CalendarView
         android:id="@+id/calendarView"
         android:layout_width="0dp"
-        android:layout_height="501dp"
-        app:headerColor="#000080"
+        android:layout_height="450dp"
+        app:headerColor="#0056a5"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
     </com.applandeo.materialcalendarview.CalendarView>
 
@@ -26,6 +47,7 @@
         android:layout_marginRight="132dp"
         android:layout_marginBottom="100dp"
         android:src="@drawable/ic_add_white_24dp"
+        app:backgroundTint="#0056a5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
@@ -36,6 +58,7 @@
         android:layout_margin="@dimen/margin_16"
         android:layout_marginRight="16dp"
         android:src="@drawable/trashcan"
+        app:backgroundTint="#0056a5"
         app:layout_constraintBottom_toTopOf="@+id/floatingActionButton"
         app:layout_constraintRight_toRightOf="parent" />
 
@@ -44,7 +67,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="80dp"
         android:gravity="left"
         android:text="메모 없음"
         android:textSize="20sp"

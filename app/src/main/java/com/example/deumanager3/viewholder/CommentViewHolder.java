@@ -49,11 +49,7 @@ public class CommentViewHolder extends RecyclerView.ViewHolder
     public void onCreateContextMenu( ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         if (!Objects.equals(comment.getUid(), User.getInstance().getUid()))
             return;
-
-//        MenuItem edit = menu.add(Menu.NONE, 1, 1, "수정");
         MenuItem delete = menu.add(Menu.NONE, 1, 1, "삭제");
-
-//        edit.setOnMenuItemClickListener(menuItemClickListener);
         delete.setOnMenuItemClickListener(menuItemClickListener);
     }
 
